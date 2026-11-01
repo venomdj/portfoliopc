@@ -251,14 +251,14 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
 .desc{margin-top:.85rem;color:var(--soft);font-size:.97rem;line-height:1.6}
 .stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
 /* shields.io-style flat badges, as on the GitHub profile */
-.tb{display:inline-flex;align-items:center;gap:.4rem;height:1.75rem;padding:0 .8rem 0 .62rem;border-radius:999px;
-  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.07)),color-mix(in srgb,var(--c) 24%,transparent);
-  color:rgba(255,255,255,.96);font:500 .74rem/1 var(--sans);letter-spacing:.005em;text-transform:none;white-space:nowrap;
-  box-shadow:inset 1px 1px 0 rgba(255,255,255,.42),inset -1px -1px 0 rgba(255,255,255,.12),inset 0 0 10px rgba(255,255,255,.07),0 5px 12px -6px rgba(0,0,0,.7);
-  transition:translate .45s var(--ease),filter .4s,box-shadow .4s;transition-delay:calc(var(--k,0)*22ms)}
+.tb{display:inline-flex;align-items:center;gap:.4rem;height:1.7rem;padding:0 .75rem 0 .6rem;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.03) 62%),color-mix(in srgb,var(--c) 34%,transparent);
+  border:1px solid rgba(255,255,255,.17);color:rgba(255,255,255,.94);font:500 .74rem/1 var(--sans);letter-spacing:.005em;text-transform:none;white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 4px 14px -6px color-mix(in srgb,var(--c) 70%,transparent);
+  transition:translate .45s var(--ease),filter .4s,border-color .4s,box-shadow .4s;transition-delay:calc(var(--k,0)*22ms)}
 .tb[style*="--lc:#111"]{--lc:var(--c)!important}
 .tb svg{flex:none;width:.85rem;height:.85rem;fill:var(--lc,currentColor)}
-.card:hover .tb{translate:0 -2px;filter:brightness(1.18)}
+.card:hover .tb{translate:0 -2px;filter:brightness(1.15);border-color:rgba(255,255,255,.32)}
 .c-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:1.5rem}
 .c-links a{display:inline-flex;align-items:center;padding:.5rem 1rem;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--soft);background-image:none;transition:background .3s,color .3s,border-color .3s}
 .c-links a:first-child{border-color:rgba(242,240,234,.3);color:var(--ink)}
@@ -314,41 +314,49 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
 .contact{border-top:1px solid var(--line)}
 .c-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:3rem clamp(1rem,2vw,2rem);margin-top:clamp(3rem,6vw,5rem);position:relative;isolation:isolate}
 /* colour for the glass to refract: two soft orbs sit behind the form */
-.c-grid::before,.c-grid::after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(26px)}
-.c-grid::before{right:-6%;top:-12%;width:min(34rem,62%);aspect-ratio:1;background:radial-gradient(circle at 40% 40%,rgba(255,84,32,.9),rgba(255,84,32,0) 68%)}
-.c-grid::after{right:24%;bottom:-18%;width:min(26rem,48%);aspect-ratio:1;background:radial-gradient(circle at 50% 50%,rgba(255,170,70,.7),rgba(255,110,70,0) 68%)}
-.c-form{grid-column:7/13;display:grid;gap:1.4rem;align-content:start;position:relative;isolation:isolate;padding:clamp(1.5rem,3vw,2.6rem);border-radius:34px;overflow:hidden;
-  background:linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,255,255,.06) 40%,rgba(255,255,255,.1));
-  -webkit-backdrop-filter:blur(34px) saturate(2) brightness(1.08);backdrop-filter:blur(34px) saturate(2) brightness(1.08);
-  box-shadow:inset 0 0 30px rgba(255,255,255,.07),0 24px 60px -20px rgba(0,0,0,.55);
-  transition:box-shadow .6s}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.c-form{background:rgba(40,40,44,.9)}}
+.c-grid::before,.c-grid::after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(40px)}
+.c-grid::before{right:-6%;top:-12%;width:min(34rem,62%);aspect-ratio:1;background:radial-gradient(circle at 40% 40%,rgba(255,90,42,.62),rgba(255,90,42,0) 66%)}
+.c-grid::after{right:26%;bottom:-18%;width:min(24rem,46%);aspect-ratio:1;background:radial-gradient(circle at 50% 50%,rgba(255,176,64,.34),rgba(255,120,60,0) 68%)}
+.c-left{grid-column:1/7;display:grid;gap:1.8rem;align-content:start}
+.c-lede{color:var(--soft);max-width:42ch}
+.mail-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.c-mail{font-size:clamp(1.3rem,3.1vw,2.7rem);letter-spacing:-.04em;line-height:1.1;overflow-wrap:anywhere;background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 2px no-repeat;padding-bottom:.1em;transition:background-size .6s var(--ease),color .3s}
+.c-mail:hover{background-size:0 2px;color:var(--accent)}
+.copy{padding:.5rem .9rem;border:1px solid var(--line);border-radius:999px;color:var(--soft);transition:border-color .3s,color .3s}
+.copy:hover{border-color:var(--ink);color:var(--ink)}
+.c-list{display:grid;grid-template-columns:auto 1fr;gap:.8rem 2rem}
+.c-list div{display:contents}
+.c-list dt{color:var(--mute);padding-top:.3rem}
+.soc{display:flex;gap:1.6rem;flex-wrap:wrap}
+.soc a{display:inline-flex;align-items:center;gap:.55rem;font-size:.95rem}
+.soc svg{width:1.05rem;height:1.05rem}
+.c-form{grid-column:7/13;display:grid;gap:1.5rem;align-content:start;position:relative;isolation:isolate;padding:clamp(1.4rem,2.8vw,2.5rem);border-radius:24px;overflow:hidden;
+  background:linear-gradient(150deg,rgba(255,255,255,.11),rgba(255,255,255,.035) 42%,rgba(255,255,255,.07));
+  -webkit-backdrop-filter:blur(24px) saturate(1.7);backdrop-filter:blur(24px) saturate(1.7);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.04),0 34px 80px -24px rgba(0,0,0,.7),0 0 70px -24px rgba(255,90,42,.45);
+  transition:border-color .5s,box-shadow .6s}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.c-form{background:rgba(26,26,28,.92)}}
 .c-form>*{position:relative}
-/* specular sheen that follows the pointer */
-.c-form::before{content:"";position:absolute;inset:0;z-index:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .5s;
-  background:radial-gradient(360px circle at var(--gx,70%) var(--gy,0%),rgba(255,255,255,.22),rgba(255,255,255,0) 62%)}
+.c-form::before{content:"";position:absolute!important;inset:0;z-index:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .5s;
+  background:radial-gradient(380px circle at var(--gx,70%) var(--gy,0%),rgba(255,255,255,.16),rgba(255,255,255,0) 62%)}
 .c-form.spot::before{opacity:1}
-/* light-catching rim: bright top-left and bottom-right, clear in between */
-.c-form::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;padding:1.5px;pointer-events:none;
-  background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(255,255,255,.1) 28%,rgba(255,255,255,.04) 62%,rgba(255,255,255,.45));
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-.c-form:focus-within{box-shadow:inset 0 0 30px rgba(255,255,255,.08),0 24px 70px -20px rgba(0,0,0,.55),0 0 80px -18px rgba(255,90,42,.6)}
-.c-form:focus-within::after{background:linear-gradient(135deg,rgba(255,190,150,.95),rgba(255,100,50,.25) 30%,rgba(255,100,50,.12) 62%,rgba(255,170,120,.7))}
+.c-form:focus-within{border-color:rgba(255,120,70,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 34px 90px -24px rgba(0,0,0,.75),0 0 90px -16px rgba(255,90,42,.6)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
 .f{display:grid;gap:.4rem;min-width:0}
 .f label{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.f input,.f textarea{width:100%;padding:.85rem 1.05rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.13);border-radius:15px;box-shadow:inset 0 2px 6px rgba(0,0,0,.2);outline:0;resize:vertical;transition:border-color .3s,background .3s,box-shadow .3s}
-.f input:focus,.f textarea:focus{border-color:rgba(255,150,110,.9);background:rgba(255,255,255,.1);box-shadow:inset 0 2px 6px rgba(0,0,0,.15),0 0 0 4px rgba(255,90,42,.18)}
+.f input,.f textarea{width:100%;padding:.8rem 1rem;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:14px;box-shadow:inset 0 1px 2px rgba(0,0,0,.25);outline:0;resize:vertical;transition:border-color .3s,background .3s,box-shadow .3s}
+.f input:focus,.f textarea:focus{border-color:rgba(255,120,70,.8);background:rgba(255,255,255,.08);box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 0 0 4px rgba(255,90,42,.14)}
 .f.bad input,.f.bad textarea{border-color:#ff6b6b}
 .err{min-height:1.1em;font-size:.82rem;color:#ff8a8a}
 .c-form .btn{justify-self:start}
-.c-form .btn.solid{padding:1.05rem 1.75rem;background:linear-gradient(180deg,#ff9468,#ff5a2a);color:var(--bg);border-color:rgba(255,255,255,.55);
-  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.65),inset 0 -8px 14px rgba(170,35,0,.25),0 12px 32px -10px rgba(255,90,42,.65);transition:color .4s var(--ease),border-color .4s,translate .4s var(--ease),scale .4s var(--ease),box-shadow .5s}
+.c-form .btn.solid{padding:1.05rem 1.7rem;background:linear-gradient(135deg,#ff6a3a,#ff9a4d);color:var(--bg);border-color:rgba(255,255,255,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -8px 16px rgba(180,40,0,.18),0 14px 40px -10px rgba(255,90,42,.7);transition:color .4s var(--ease),border-color .4s,translate .4s var(--ease),scale .4s var(--ease),box-shadow .5s}
 .c-form .btn.solid::before{background:var(--ink)}
 .c-form .btn.solid::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;translate:-130% 0;background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,.55) 50%,transparent 64%)}
 .c-form .btn.solid:hover,.c-form .btn.solid:focus-visible{border-color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 18px 50px -8px rgba(255,90,42,.85)}
 .note{color:var(--mute);text-transform:none;letter-spacing:.02em;line-height:1.6}
-.status{padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:rgba(255,255,255,.08);color:var(--soft);font-size:.95rem}
+.status{padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.05);color:var(--soft);font-size:.95rem}
 .status.bad{border-color:#ff6b6b;color:#ff8a8a}
 .status[hidden]{display:none}
 
