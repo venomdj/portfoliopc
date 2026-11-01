@@ -251,9 +251,14 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
 .desc{margin-top:.85rem;color:var(--soft);font-size:.97rem;line-height:1.6}
 .stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
 /* shields.io-style flat badges, as on the GitHub profile */
-.tb{display:inline-flex;align-items:center;gap:.38rem;height:1.5rem;padding:0 .55rem 0 .5rem;border-radius:3px;background:var(--c);color:var(--t,#fff);font:500 .72rem/1 Verdana,Geneva,"DejaVu Sans",sans-serif;letter-spacing:0;text-transform:none;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);text-shadow:0 1px 0 rgba(0,0,0,.18);transition:translate .45s var(--ease),filter .4s;transition-delay:calc(var(--k,0)*22ms)}
+.tb{display:inline-flex;align-items:center;gap:.4rem;height:1.7rem;padding:0 .75rem 0 .6rem;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.03) 62%),color-mix(in srgb,var(--c) 34%,transparent);
+  border:1px solid rgba(255,255,255,.17);color:rgba(255,255,255,.94);font:500 .74rem/1 var(--sans);letter-spacing:.005em;text-transform:none;white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 4px 14px -6px color-mix(in srgb,var(--c) 70%,transparent);
+  transition:translate .45s var(--ease),filter .4s,border-color .4s,box-shadow .4s;transition-delay:calc(var(--k,0)*22ms)}
+.tb[style*="--lc:#111"]{--lc:var(--c)!important}
 .tb svg{flex:none;width:.85rem;height:.85rem;fill:var(--lc,currentColor)}
-.card:hover .tb{translate:0 -2px;filter:brightness(1.12)}
+.card:hover .tb{translate:0 -2px;filter:brightness(1.15);border-color:rgba(255,255,255,.32)}
 .c-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:1.5rem}
 .c-links a{display:inline-flex;align-items:center;padding:.5rem 1rem;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--soft);background-image:none;transition:background .3s,color .3s,border-color .3s}
 .c-links a:first-child{border-color:rgba(242,240,234,.3);color:var(--ink)}
@@ -275,6 +280,20 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
 .win h3{font-size:clamp(1.4rem,2.4vw,2.1rem);letter-spacing:-.03em;line-height:1.1}
 .win .v{display:block;margin-top:.6rem;color:var(--mute);line-height:1.5}
 .win p{color:var(--soft);max-width:56ch}
+/* recognition: connecting rail, lit dots, focus blur */
+.win-list{position:relative;--gap:clamp(1.2rem,3vw,2.6rem);padding-left:var(--gap)}
+.win-list::before,.win-list::after{content:"";position:absolute;left:0;top:0;width:1px;pointer-events:none}
+.win-list::before{bottom:0;background:var(--line)}
+.win-list::after{height:calc(var(--p,0)*100%);background:linear-gradient(rgba(255,90,42,.35),var(--accent));filter:drop-shadow(0 0 5px rgba(255,90,42,.8))}
+.win{position:relative;isolation:isolate}
+.win::before{content:"";position:absolute;left:calc(-1*var(--gap) - 3px);top:calc(clamp(1.5rem,2.8vw,2.4rem) + .8rem);width:7px;height:7px;border-radius:50%;background:var(--bg);border:1px solid var(--mute);transition:background .5s,border-color .5s,box-shadow .5s,scale .5s var(--ease)}
+.win.lit::before{background:var(--accent);border-color:var(--accent)}
+.win.on::before{scale:1.45;box-shadow:0 0 0 5px rgba(255,90,42,.16),0 0 18px var(--accent)}
+.win::after{content:"";position:absolute;inset:0 0 0 calc(-1*var(--gap));z-index:-1;background:linear-gradient(90deg,rgba(255,90,42,.08),transparent 62%);opacity:0;transition:opacity .6s;pointer-events:none}
+.win.on::after{opacity:1}
+.win.on .yr{color:var(--accent)}
+.win h3{transition:translate .6s var(--ease)}
+.win.on h3{translate:.5rem 0}
 .gh{display:flex;gap:clamp(2rem,6vw,5rem);margin-top:clamp(2.5rem,5vw,4rem)}
 .gh dt{font-size:clamp(2.2rem,4vw,3.6rem);letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
 .gh dd{margin-top:.4rem;color:var(--mute);font-size:.9rem}
@@ -293,7 +312,11 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
 
 /* ---------- contact ---------- */
 .contact{border-top:1px solid var(--line)}
-.c-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:3rem clamp(1rem,2vw,2rem);margin-top:clamp(3rem,6vw,5rem)}
+.c-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:3rem clamp(1rem,2vw,2rem);margin-top:clamp(3rem,6vw,5rem);position:relative;isolation:isolate}
+/* colour for the glass to refract: two soft orbs sit behind the form */
+.c-grid::before,.c-grid::after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(40px)}
+.c-grid::before{right:-6%;top:-12%;width:min(34rem,62%);aspect-ratio:1;background:radial-gradient(circle at 40% 40%,rgba(255,90,42,.62),rgba(255,90,42,0) 66%)}
+.c-grid::after{right:26%;bottom:-18%;width:min(24rem,46%);aspect-ratio:1;background:radial-gradient(circle at 50% 50%,rgba(255,176,64,.34),rgba(255,120,60,0) 68%)}
 .c-left{grid-column:1/7;display:grid;gap:1.8rem;align-content:start}
 .c-lede{color:var(--soft);max-width:42ch}
 .mail-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
@@ -307,17 +330,33 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
 .soc{display:flex;gap:1.6rem;flex-wrap:wrap}
 .soc a{display:inline-flex;align-items:center;gap:.55rem;font-size:.95rem}
 .soc svg{width:1.05rem;height:1.05rem}
-.c-form{grid-column:8/13;display:grid;gap:1.6rem;align-content:start}
+.c-form{grid-column:7/13;display:grid;gap:1.5rem;align-content:start;position:relative;isolation:isolate;padding:clamp(1.4rem,2.8vw,2.5rem);border-radius:24px;overflow:hidden;
+  background:linear-gradient(150deg,rgba(255,255,255,.11),rgba(255,255,255,.035) 42%,rgba(255,255,255,.07));
+  -webkit-backdrop-filter:blur(24px) saturate(1.7);backdrop-filter:blur(24px) saturate(1.7);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.04),0 34px 80px -24px rgba(0,0,0,.7),0 0 70px -24px rgba(255,90,42,.45);
+  transition:border-color .5s,box-shadow .6s}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.c-form{background:rgba(26,26,28,.92)}}
+.c-form>*{position:relative}
+.c-form::before{content:"";position:absolute!important;inset:0;z-index:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .5s;
+  background:radial-gradient(380px circle at var(--gx,70%) var(--gy,0%),rgba(255,255,255,.16),rgba(255,255,255,0) 62%)}
+.c-form.spot::before{opacity:1}
+.c-form:focus-within{border-color:rgba(255,120,70,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 34px 90px -24px rgba(0,0,0,.75),0 0 90px -16px rgba(255,90,42,.6)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
 .f{display:grid;gap:.4rem;min-width:0}
 .f label{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.f input,.f textarea{width:100%;padding:.5rem 0 .8rem;border-bottom:1px solid var(--line);outline:0;resize:vertical;transition:border-color .3s;border-radius:0}
-.f input:focus,.f textarea:focus{border-color:var(--ink)}
+.f input,.f textarea{width:100%;padding:.8rem 1rem;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:14px;box-shadow:inset 0 1px 2px rgba(0,0,0,.25);outline:0;resize:vertical;transition:border-color .3s,background .3s,box-shadow .3s}
+.f input:focus,.f textarea:focus{border-color:rgba(255,120,70,.8);background:rgba(255,255,255,.08);box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 0 0 4px rgba(255,90,42,.14)}
 .f.bad input,.f.bad textarea{border-color:#ff6b6b}
 .err{min-height:1.1em;font-size:.82rem;color:#ff8a8a}
 .c-form .btn{justify-self:start}
+.c-form .btn.solid{padding:1.05rem 1.7rem;background:linear-gradient(135deg,#ff6a3a,#ff9a4d);color:var(--bg);border-color:rgba(255,255,255,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -8px 16px rgba(180,40,0,.18),0 14px 40px -10px rgba(255,90,42,.7);transition:color .4s var(--ease),border-color .4s,translate .4s var(--ease),scale .4s var(--ease),box-shadow .5s}
+.c-form .btn.solid::before{background:var(--ink)}
+.c-form .btn.solid::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;translate:-130% 0;background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,.55) 50%,transparent 64%)}
+.c-form .btn.solid:hover,.c-form .btn.solid:focus-visible{border-color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 18px 50px -8px rgba(255,90,42,.85)}
 .note{color:var(--mute);text-transform:none;letter-spacing:.02em;line-height:1.6}
-.status{padding:1rem 1.2rem;border:1px solid var(--line);border-radius:4px;color:var(--soft);font-size:.95rem}
+.status{padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.05);color:var(--soft);font-size:.95rem}
 .status.bad{border-color:#ff6b6b;color:#ff8a8a}
 .status[hidden]{display:none}
 
@@ -338,9 +377,22 @@ i.plus,.more i,.q button i{position:relative;width:.7rem;height:.7rem;flex:none}
   .js [data-reveal],.js .h-up,.js .card .c-top,.js .card h3,.js .card .desc,.js .card .stack,.js .card .c-links{opacity:0;translate:0 2rem;transition:opacity 1s var(--ease),translate 1.1s var(--ease);transition-delay:calc(var(--i,0)*90ms + var(--d,0s))}
   .js [data-reveal].in,.js .card.in .c-top,.js .card.in h3,.js .card.in .desc,.js .card.in .stack,.js .card.in .c-links,.js.ready .h-up{opacity:1;translate:0 0}
   .grid .card:nth-child(even){--d:.14s}
+  /* recognition: blur-in on entry + scroll focus (sharp near the viewport centre, soft further out) */
+  .js .win[data-reveal]{filter:blur(14px);transition:opacity 1s var(--ease),translate 1.1s var(--ease),filter 1.1s var(--ease);transition-delay:calc(var(--i,0)*90ms + var(--d,0s))}
+  .js .win[data-reveal].in{filter:blur(0)}
+  .js .win>*{filter:blur(calc(var(--f,0)*4px));opacity:calc(1 - var(--f,0)*.62);transition:filter .35s,opacity .35s}
+  .js .win:hover>*,.js .win:focus-within>*{--f:0}
   .js .card .c-top{transition-delay:calc(var(--d,0s) + .35s)}.js .card h3{transition-delay:calc(var(--d,0s) + .45s)}.js .card .desc{transition-delay:calc(var(--d,0s) + .55s)}.js .card .stack{transition-delay:calc(var(--d,0s) + .62s)}.js .card .c-links{transition-delay:calc(var(--d,0s) + .7s)}
   .js .card .idx{opacity:0;transition:opacity .8s calc(var(--d,0s) + 1s)}.js .card.in .idx{opacity:1}
   .js .card .media{transition-delay:var(--d,0s)}
+  /* contact glass: drifting orbs + idle sheen on the send button */
+  .c-grid::before{animation:orbA 14s ease-in-out infinite alternate}
+  .c-grid::after{animation:orbB 17s ease-in-out infinite alternate}
+  @keyframes orbA{to{translate:-9% 12%;scale:1.12}}
+  @keyframes orbB{to{translate:14% -10%;scale:.9}}
+  .c-form .btn.solid::after{animation:sheen 5s var(--ease-io) 1.2s infinite}
+  .c-form .btn.solid:hover::after{animation-duration:1.1s}
+  @keyframes sheen{0%,62%{translate:-130% 0}100%{translate:130% 0}}
   .badge i{animation:ping 2.6s ease-out infinite}
   @keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,90,42,.55)}70%,100%{box-shadow:0 0 0 .5rem rgba(255,90,42,0)}}
   /* hero */
