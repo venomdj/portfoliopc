@@ -1,5 +1,5 @@
 /* ============================================================
-   ARYAN VERMA — Developer Portfolio
+   PRIYANSHU CHAURASIA — Developer Portfolio
    Main JavaScript — Vanilla JS + GSAP
    ============================================================ */
 
@@ -8,23 +8,28 @@
 /* ─────────────────────────────────────────
    1. PAGE LOADER
 ───────────────────────────────────────── */
-window.addEventListener('load', () => {
+(function initLoader() {
   const loader = document.getElementById('page-loader');
-  if (!loader) return;
+  let done = false;
 
-  setTimeout(() => {
-    gsap.to(loader, {
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-      onComplete: () => {
-        loader.style.display = 'none';
-        document.body.style.overflow = '';
-        initHeroAnimations();
-      }
-    });
-  }, 1200);
-});
+  function finish() {
+    if (done) return;
+    done = true;
+    if (loader) loader.style.display = 'none';
+    // The scroll lock is a class (body.is-loading), so it has to be removed as a class.
+    document.body.classList.remove('is-loading');
+    initHeroAnimations();
+  }
+
+  function hideLoader() {
+    if (!loader || typeof gsap === 'undefined') { finish(); return; }   // no loader / CDN blocked
+    gsap.to(loader, { opacity: 0, duration: 0.6, ease: 'power2.out', onComplete: finish });
+  }
+
+  window.addEventListener('load', () => setTimeout(hideLoader, 1200));
+  // Failsafe: never leave the visitor behind the loader with scrolling locked.
+  setTimeout(finish, 6000);
+})();
 
 /* ─────────────────────────────────────────
    2. CUSTOM CURSOR
@@ -47,11 +52,20 @@ window.addEventListener('load', () => {
     return;
   }
 
-  let mouseX = 0, mouseY = 0;
+    let mouseX = 0, mouseY = 0;
   let ringX = 0, ringY = 0;
   let raf;
-
+  let shown = false;
+  dot.style.opacity = '0';
+  ring.style.opacity = '0';
   document.addEventListener('mousemove', (e) => {
+    if (!shown) {
+            shown = true;
+      document.body.dataset.cursorActive = '1';
+      ringX = e.clientX; ringY = e.clientY;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.style.left = mouseX + 'px';
@@ -139,8 +153,10 @@ window.addEventListener('load', () => {
 
   // Smooth scroll for all anchor links
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
+        link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;          // querySelector('#') throws
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         const offset = document.getElementById('navbar').offsetHeight;
@@ -224,6 +240,7 @@ function initHeroAnimations() {
   if (typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
     initScrollTriggerAnimations();
+    window.addEventListener('load', () => ScrollTrigger.refresh());
   }
 }
 
@@ -231,9 +248,17 @@ function initHeroAnimations() {
    7. SCROLL TRIGGER ANIMATIONS
 ───────────────────────────────────────── */
 function initScrollTriggerAnimations() {
+  // After each tween finishes, remove GSAP's inline opacity/transform; otherwise they override
+  // the CSS :hover lift on cards. CSS transitions are paused while a tween runs so they don't fight GSAP.
+  const from = (targets, vars) => gsap.from(targets, Object.assign({}, vars, {
+    clearProps: 'opacity,transform',
+    onStart() { this.targets().forEach(t => { t.style.transition = 'none'; }); },
+    onComplete() { this.targets().forEach(t => { t.style.transition = ''; }); }
+  }));
+
   // Generic reveal elements
   gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.from(el, {
+    from(el, {
       opacity: 0,
       y: 50,
       duration: 0.8,
@@ -247,7 +272,7 @@ function initScrollTriggerAnimations() {
   });
 
   gsap.utils.toArray('.reveal-left').forEach(el => {
-    gsap.from(el, {
+    from(el, {
       opacity: 0,
       x: -50,
       duration: 0.8,
@@ -261,7 +286,7 @@ function initScrollTriggerAnimations() {
   });
 
   gsap.utils.toArray('.reveal-right').forEach(el => {
-    gsap.from(el, {
+    from(el, {
       opacity: 0,
       x: 50,
       duration: 0.8,
@@ -275,7 +300,7 @@ function initScrollTriggerAnimations() {
   });
 
   // Skills section — category cards stagger
-  gsap.from('.skill-category', {
+  from('.skill-category', {
     opacity: 0,
     y: 60,
     stagger: 0.15,
@@ -289,7 +314,7 @@ function initScrollTriggerAnimations() {
   });
 
   // Project cards stagger
-  gsap.from('.project-card', {
+  from('.project-card', {
     opacity: 0,
     y: 50,
     stagger: 0.1,
@@ -303,7 +328,7 @@ function initScrollTriggerAnimations() {
   });
 
   // Team cards stagger
-  gsap.from('.team-card', {
+  from('.team-card', {
     opacity: 0,
     y: 50,
     scale: 0.95,
@@ -318,7 +343,7 @@ function initScrollTriggerAnimations() {
   });
 
   // Achievement cards
-  gsap.from('.achievement-card', {
+  from('.achievement-card', {
     opacity: 0,
     x: -30,
     stagger: 0.1,
@@ -332,7 +357,7 @@ function initScrollTriggerAnimations() {
   });
 
   // Timeline items
-  gsap.from('.timeline-item', {
+  from('.timeline-item', {
     opacity: 0,
     x: -40,
     stagger: 0.15,
@@ -347,7 +372,7 @@ function initScrollTriggerAnimations() {
 
   // Section headings dramatic reveal
   gsap.utils.toArray('.section-title').forEach(el => {
-    gsap.from(el, {
+    from(el, {
       opacity: 0,
       y: 40,
       duration: 0.9,
@@ -361,7 +386,7 @@ function initScrollTriggerAnimations() {
   });
 
   // Contact form section
-  gsap.from('.contact-form-wrap', {
+  from('.contact-form-wrap', {
     opacity: 0,
     y: 60,
     duration: 0.9,
@@ -373,7 +398,7 @@ function initScrollTriggerAnimations() {
     }
   });
 
-  gsap.from('.contact-info', {
+  from('.contact-info', {
     opacity: 0,
     x: -50,
     duration: 0.9,
@@ -494,7 +519,7 @@ function initScrollTriggerAnimations() {
           if (typeof gsap !== 'undefined') {
             gsap.fromTo(card,
               { opacity: 0, y: 20, scale: 0.97 },
-              { opacity: 1, y: 0, scale: 1, duration: 0.4, delay: i * 0.05, ease: 'power2.out' }
+              { opacity: 1, y: 0, scale: 1, duration: 0.4, delay: i * 0.05, ease: 'power2.out', clearProps: 'opacity,transform' }
             );
           }
         } else {
@@ -509,6 +534,9 @@ function initScrollTriggerAnimations() {
    12. CONTACT FORM VALIDATION
 ───────────────────────────────────────── */
 (function initContactForm() {
+  // Set CONTACT_FORM_ENDPOINT to a Formspree / Web3Forms URL to deliver messages without an email app.
+  const CONTACT_FORM_ENDPOINT = '';
+  const CONTACT_EMAIL = 'priyanshuchaurasiadlw@gmail.com';
   const form = document.getElementById('contact-form');
   if (!form) return;
 
@@ -602,21 +630,60 @@ function initScrollTriggerAnimations() {
         if (spinIcon) spinIcon.style.animation = 'spin 1s linear infinite';
       }
 
-      setTimeout(() => {
+            const payload = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        subject: subject.value.trim(),
+        message: message.value.trim()
+      };
+
+      const showSuccess = (title, text) => {
+        const t = successMsg && successMsg.querySelector('.success-title');
+        const p = successMsg && successMsg.querySelector('.success-text');
+        if (t && title) t.textContent = title;
+        if (p && text) p.textContent = text;
         if (formContent) formContent.style.display = 'none';
         if (successMsg) {
           successMsg.classList.add('show');
           if (typeof gsap !== 'undefined') {
-            gsap.from(successMsg.children, {
-              opacity: 0,
-              y: 20,
-              stagger: 0.1,
-              duration: 0.5,
-              ease: 'power2.out'
-            });
+            gsap.from(successMsg.children, { opacity: 0, y: 20, stagger: 0.1, duration: 0.5, ease: 'power2.out' });
           }
         }
-      }, 1800);
+      };
+
+      const resetBtn = () => {
+        if (!submitBtn) return;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message';
+      };
+
+      if (CONTACT_FORM_ENDPOINT) {
+        // Real delivery through a form service (Formspree, Web3Forms, etc.)
+        fetch(CONTACT_FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(r => {
+          if (!r.ok) throw new Error('Request failed');
+          showSuccess();
+        }).catch(() => {
+          resetBtn();
+          alert('Sorry, the message could not be sent. Please email ' + CONTACT_EMAIL + ' directly.');
+        });
+        return;
+      }
+
+      // No backend configured: open the visitor's email app with the message prefilled.
+      const body = payload.message + '\n\n— ' + payload.name + ' (' + payload.email + ')';
+      window.location.href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(payload.subject) +
+        '&body=' + encodeURIComponent(body);
+      setTimeout(() => showSuccess(
+        'Almost there! 📨',
+        'Your email app should have opened with the message ready. Just press send and I will get back to you soon.'
+      ), 600);
+      return;
+
     }
   });
 })();
@@ -698,7 +765,7 @@ document.addEventListener('visibilitychange', () => {
     const ring = document.getElementById('cursor-ring');
     if (dot) dot.style.opacity = '0';
     if (ring) ring.style.opacity = '0';
-  } else {
+    } else if (document.body.dataset.cursorActive === '1') {
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (dot) dot.style.opacity = '1';
