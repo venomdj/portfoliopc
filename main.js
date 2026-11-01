@@ -340,11 +340,12 @@
     qBtns.forEach(o => { o.setAttribute('aria-expanded', o === b && open); document.getElementById(o.getAttribute('aria-controls')).classList.toggle('open', o === b && open); });
   }));
 
-  /* ---------- projects: filter + staggered column offset ---------- */
+  /* ---------- projects: filter + last-card spans the row when the count is odd ---------- */
   const cards = $$('.card'), fbs = $$('.filters button');
   const layoutCards = () => {
-    let n = 0;
-    cards.forEach(c => { if (c.hidden) return; n++; n % 2 === 0 ? c.setAttribute('data-alt', '') : c.removeAttribute('data-alt'); });
+    const vis = cards.filter(c => !c.hidden);
+    cards.forEach(c => c.removeAttribute('data-wide'));
+    if (vis.length > 1 && vis.length % 2 === 1) vis[vis.length - 1].setAttribute('data-wide', '');
   };
   layoutCards();
   fbs.forEach(b => b.addEventListener('click', () => {
@@ -353,6 +354,15 @@
     cards.forEach(c => { c.hidden = f !== 'all' && !c.dataset.cat.split(' ').includes(f); });
     layoutCards(); req();
   }));
+
+  /* ---------- project cards: cursor spotlight ---------- */
+  if (!reduced && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    cards.forEach(c => c.addEventListener('pointermove', e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left).toFixed(0) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top).toFixed(0) + 'px');
+    }, { passive: true }));
+  }
 
   /* ---------- pointer effects (fine pointers only) ---------- */
   if (fine && !reduced) {
