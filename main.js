@@ -271,6 +271,24 @@
   const progress = $('#progress'), rail = $('#railFill'), steps = $('#steps');
   const para = reduced ? [] : $$('[data-parallax]');
   const heroBg = $('.hero-bg');
+  /* recognition: rail fill, lit dots, focus blur */
+  const winList = $('.win-list'), wins = $$('.win');
+  function winFx(vh) {
+    if (!winList || !wins.length) return;
+    if (reduced) { winList.style.setProperty('--p', 1); wins.forEach(w => w.classList.add('lit')); return; }
+    const lr = winList.getBoundingClientRect();
+    if (lr.bottom < -vh * .5 || lr.top > vh * 1.5) return;
+    const fy = vh * .5;
+    winList.style.setProperty('--p', clamp((fy - lr.top) / lr.height, 0, 1).toFixed(4));
+    let best = null, bd = Infinity;
+    wins.forEach(w => {
+      const r = w.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - fy);
+      w.style.setProperty('--f', clamp((d - r.height * .5) / (vh * .38), 0, 1).toFixed(2));
+      w.classList.toggle('lit', r.top + 36 < fy);
+      if (d < bd) { bd = d; best = w; }
+    });
+    wins.forEach(w => w.classList.toggle('on', w === best && bd < vh * .35));
+  }
   let lastY = scrollY, ticking = false;
   function onScroll() {
     ticking = false;
@@ -287,6 +305,7 @@
       const r = steps.getBoundingClientRect();
       rail.style.setProperty('--p', clamp((vh * .62 - r.top) / r.height, 0, 1).toFixed(4));
     }
+    winFx(vh);
     if (sWords.length && !reduced) {
       const r = statement.getBoundingClientRect();
       const p = clamp((vh * .88 - r.top) / (r.height + vh * .38), 0, 1);
@@ -305,6 +324,18 @@
   addEventListener('scroll', req, { passive: true });
   addEventListener('resize', () => { req(); placeInd(); }, { passive: true });
   onScroll();
+
+  /* ---------- contact: glass sheen follows the pointer ---------- */
+  const glassForm = $('.c-form');
+  if (glassForm && fine && !reduced) {
+    glassForm.addEventListener('pointermove', e => {
+      const r = glassForm.getBoundingClientRect();
+      glassForm.style.setProperty('--gx', (e.clientX - r.left).toFixed(0) + 'px');
+      glassForm.style.setProperty('--gy', (e.clientY - r.top).toFixed(0) + 'px');
+      glassForm.classList.add('spot');
+    }, { passive: true });
+    glassForm.addEventListener('pointerleave', () => glassForm.classList.remove('spot'));
+  }
 
   /* ---------- hero: pointer-reactive depth (fine pointers only) ---------- */
   if (heroBg && !reduced && matchMedia('(hover:hover) and (pointer:fine)').matches) {
