@@ -1,10 +1,9 @@
 /* ============================================================
-   ARYAN VERMA — Developer Portfolio
+   PRIYANSHU CHAURASIA — Developer Portfolio
    Design System & Styles
    ============================================================ */
 
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* ── Google Fonts are loaded via <link> in index.html (no render-blocking @import) ── */
 
 /* ── CSS Custom Properties ── */
 :root {
@@ -500,7 +499,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-display);
-  font-size: 22vw;
+  font-size: 13vw;
   font-weight: 700;
   color: var(--text);
   opacity: 0.04;
@@ -737,10 +736,10 @@ section {
   to { transform: translateY(-10px); }
 }
 
-.hero-stat-card:nth-child(2) { top: -20px; right: -50px; animation-delay: 0s; --float-duration: 3.5s; }
-.hero-stat-card:nth-child(3) { bottom: 20px; right: -60px; animation-delay: 0.8s; --float-duration: 4.5s; }
-.hero-stat-card:nth-child(4) { bottom: -20px; left: -40px; animation-delay: 1.4s; --float-duration: 4s; }
-.hero-stat-card:nth-child(5) { top: 10px; left: -60px; animation-delay: 0.4s; --float-duration: 5s; }
+.hero-stat-card:nth-child(3) { top: -20px; right: -30px; animation-delay: 0s; --float-duration: 3.5s; }
+.hero-stat-card:nth-child(4) { bottom: 20px; right: -36px; animation-delay: 0.8s; --float-duration: 4.5s; }
+.hero-stat-card:nth-child(5) { bottom: -20px; left: -40px; animation-delay: 1.4s; --float-duration: 4s; }
+.hero-stat-card:nth-child(6) { top: 10px; left: -60px; animation-delay: 0.4s; --float-duration: 5s; }
 
 .hero-stat-number {
   font-family: var(--font-display);
@@ -2071,9 +2070,7 @@ footer {
 
 /* ── Reveal Animations ── */
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  /* initial hidden state is applied by GSAP (main.js) so content is never stuck invisible */
 }
 
 .reveal.visible {
@@ -2082,9 +2079,7 @@ footer {
 }
 
 .reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  /* initial hidden state is applied by GSAP (main.js) so content is never stuck invisible */
 }
 
 .reveal-left.visible {
@@ -2093,9 +2088,7 @@ footer {
 }
 
 .reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  /* initial hidden state is applied by GSAP (main.js) so content is never stuck invisible */
 }
 
 .reveal-right.visible {
@@ -2105,10 +2098,10 @@ footer {
 
 /* ── Responsive ── */
 @media (max-width: 1280px) {
-  .hero-stat-card:nth-child(2) { right: -30px; }
-  .hero-stat-card:nth-child(3) { right: -40px; }
-  .hero-stat-card:nth-child(4) { left: -20px; }
-  .hero-stat-card:nth-child(5) { left: -40px; }
+  .hero-stat-card:nth-child(3) { right: -30px; }
+  .hero-stat-card:nth-child(4) { right: -40px; }
+  .hero-stat-card:nth-child(5) { left: -20px; }
+  .hero-stat-card:nth-child(6) { left: -40px; }
 }
 
 @media (max-width: 1024px) {
@@ -2154,10 +2147,10 @@ footer {
   .hero-headline { font-size: clamp(3rem, 12vw, 6rem); }
   .hero-avatar-wrap { width: 240px; height: 240px; }
 
-  .hero-stat-card:nth-child(2) { right: -10px; top: -10px; }
-  .hero-stat-card:nth-child(3) { right: -10px; bottom: 10px; }
-  .hero-stat-card:nth-child(4) { left: -10px; bottom: -10px; }
-  .hero-stat-card:nth-child(5) { left: -10px; top: 10px; }
+  .hero-stat-card:nth-child(3) { right: -10px; top: -10px; }
+  .hero-stat-card:nth-child(4) { right: -10px; bottom: 10px; }
+  .hero-stat-card:nth-child(5) { left: -10px; bottom: -10px; }
+  .hero-stat-card:nth-child(6) { left: -10px; top: 10px; }
 
   .projects-header { flex-direction: column; align-items: flex-start; }
   .projects-grid { grid-template-columns: 1fr; }
