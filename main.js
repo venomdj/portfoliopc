@@ -107,7 +107,7 @@
   /* ---------- loader (cannot get stuck: hard timeout) ---------- */
   const loader = $('#loader');
   const ldNum = $('#ldNum');
-  let seen = false; safe(() => { seen = sessionStorage.getItem('pf-seen') === '1'; });
+  const seen = false; /* intro plays on every load; any click/key/scroll skips it */
   let loaderDone = false;
   function finishLoader() {
     if (loaderDone) return; loaderDone = true;
@@ -137,7 +137,7 @@
       document.fonts && document.fonts.ready,
       img && img.decode ? img.decode().catch(() => {}) : null
     ]).then(() => { assetsReady = true; });
-    const t0 = performance.now(), MIN = 1250;
+    const t0 = performance.now(), MIN = 2500;
     const step = now => {
       if (loaderDone) return;
       const t = clamp((now - t0) / MIN, 0, 1);
@@ -149,7 +149,7 @@
       requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-    setTimeout(finishLoader, 4000);
+    setTimeout(finishLoader, 5200);
   }
 
   /* ---------- clock ---------- */
