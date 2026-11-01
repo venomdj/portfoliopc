@@ -132,7 +132,7 @@
     const skipEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
     const onSkip = () => { skip = true; };
     skipEvents.forEach(ev => addEventListener(ev, onSkip, { passive: true, once: true }));
-    const img = $('.portrait img');
+    const img = $('.hb-img');
     Promise.all([
       document.fonts && document.fonts.ready,
       img && img.decode ? img.decode().catch(() => {}) : null
@@ -270,6 +270,7 @@
   /* ---------- scroll loop: progress, rail, statement scrub, parallax, bar ---------- */
   const progress = $('#progress'), rail = $('#railFill'), steps = $('#steps');
   const para = reduced ? [] : $$('[data-parallax]');
+  const heroBg = $('.hero-bg');
   let lastY = scrollY, ticking = false;
   function onScroll() {
     ticking = false;
@@ -285,6 +286,7 @@
       }
     }
     lastY = y;
+    if (heroBg && !reduced) heroBg.style.setProperty('--hs', clamp(y / (vh * .9), 0, 1).toFixed(3));
     if (steps && rail) {
       const r = steps.getBoundingClientRect();
       rail.style.setProperty('--p', clamp((vh * .62 - r.top) / r.height, 0, 1).toFixed(4));
@@ -307,6 +309,17 @@
   addEventListener('scroll', req, { passive: true });
   addEventListener('resize', () => { req(); placeInd(); }, { passive: true });
   onScroll();
+
+  /* ---------- hero: pointer-reactive depth (fine pointers only) ---------- */
+  if (heroBg && !reduced && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    const hero = heroBg.parentElement;
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect();
+      heroBg.style.setProperty('--mx', (((e.clientX - r.left) / r.width) * 2 - 1).toFixed(3));
+      heroBg.style.setProperty('--my', (((e.clientY - r.top) / r.height) * 2 - 1).toFixed(3));
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => { heroBg.style.setProperty('--mx', 0); heroBg.style.setProperty('--my', 0); });
+  }
 
   /* ---------- journey: details toggles ---------- */
   $$('.step .more').forEach(btn => {
