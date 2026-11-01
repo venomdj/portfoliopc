@@ -1,1182 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Priyanshu Chaurasia — Full-Stack & Backend Engineer. CTO at Gryork, Founder of Nexus at MMMUT. Building production systems, agentic AI and campus-scale platforms." />
-  <meta name="author" content="Priyanshu Chaurasia" />
-  <title>Priyanshu Chaurasia — Full-Stack & Backend Engineer</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Inline: hide body overflow until loader completes -->
-  <style>
-    body.is-loading { overflow: hidden; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .spin-icon { animation: spin 1s linear infinite; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Priyanshu Chaurasia — Systems &amp; Platform Engineer</title>
+<meta name="description" content="Third-year CSE student at MMMUT. CTO at Gryork and Washtro, founder-President of Nexsus. I build the systems institutions run on.">
+<meta name="author" content="Priyanshu Chaurasia">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Priyanshu Chaurasia — Systems &amp; Platform Engineer">
+<meta property="og:description" content="Two startups run on architecture I designed. A registered university society runs on a platform I built.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0b0c'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ff5a2a'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){var d=document.documentElement;if(!d.classList.contains('ready'))d.classList.remove('js');d.classList.add('failsafe')},6000)</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body class="is-loading">
-
-  <!-- ══════════════════════════════════
-       SCROLL PROGRESS
-  ══════════════════════════════════ -->
-  <div id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════════
-       CUSTOM CURSOR
-  ══════════════════════════════════ -->
-  <div id="cursor-dot" aria-hidden="true"></div>
-  <div id="cursor-ring" aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════════
-       PAGE LOADER
-  ══════════════════════════════════ -->
-  <div id="page-loader" role="status" aria-label="Loading page">
-    <div class="loader-text">PRIYANSHU<span>.</span></div>
-    <div class="loader-bar-wrap">
-      <div class="loader-bar"></div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════
-       NAVIGATION
-  ══════════════════════════════════ -->
-  <header>
-    <nav id="navbar" aria-label="Main navigation">
-      <div class="nav-container">
-        <!-- Logo -->
-        <a href="#hero" class="nav-logo" aria-label="Priyanshu Chaurasia — home">
-          <div class="nav-logo-mark" aria-hidden="true">PC</div>
-          Priyanshu Chaurasia
-        </a>
-
-        <!-- Desktop Links -->
-        <ul class="nav-links" role="list">
-          <li><a href="#about"        class="nav-link" data-section="about">About</a></li>
-          <li><a href="#skills"       class="nav-link" data-section="skills">Skills</a></li>
-          <li><a href="#projects"     class="nav-link" data-section="projects">Projects</a></li>
-          <li><a href="#team"         class="nav-link" data-section="team">Journey</a></li>
-          <li><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
-          <li><a href="#contact"      class="nav-link" data-section="contact">Contact</a></li>
-        </ul>
-
-        <a href="#contact" class="nav-cta" aria-label="Hire Priyanshu Chaurasia">Hire Me</a>
-
-        <!-- Hamburger -->
-        <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-      <a href="#about"        class="mobile-nav-link">About</a>
-      <a href="#skills"       class="mobile-nav-link">Skills</a>
-      <a href="#projects"     class="mobile-nav-link">Projects</a>
-      <a href="#team"         class="mobile-nav-link">Journey</a>
-      <a href="#achievements" class="mobile-nav-link">Achievements</a>
-      <a href="#contact"      class="mobile-nav-link">Contact</a>
-      <a href="#contact"      class="mobile-nav-link" style="color: var(--accent); font-size: clamp(1.2rem, 4vw, 2rem); margin-top: 20px;">Hire Me →</a>
-    </div>
-  </header>
-
-  <main>
-    <!-- ══════════════════════════════════
-         HERO SECTION
-    ══════════════════════════════════ -->
-    <section id="hero" aria-label="Hero introduction">
-      <!-- Watermark text -->
-      <div class="hero-bg-text" aria-hidden="true">PRIYANSHU</div>
-
-      <!-- Floating particles -->
-      <div class="hero-particles" aria-hidden="true"></div>
-
-      <div class="hero-container">
-        <!-- Left: Text content -->
-        <div class="hero-left">
-          <!-- Availability badge -->
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            CTO · Founder · Builder
-          </div>
-
-          <!-- Massive headline -->
-          <h1 class="hero-headline" aria-label="Building Digital Experiences">
-            <span class="line">BUILDING</span><br>
-            <span class="line outline-text">DIGITAL</span><br>
-            <span class="line accent-word">EXPERIENCES</span>
-          </h1>
-
-          <!-- Tagline -->
-          <p class="hero-tagline">
-            Full-Stack &amp; Backend Engineer — CTO at Gryork and Washtro, founder of Nexus at MMMUT. I architect production systems, agentic AI and campus-scale platforms that people actually use.
-          </p>
-
-          <!-- CTAs -->
-          <div class="hero-ctas">
-            <a href="#projects" class="btn btn-primary magnetic" aria-label="Explore my projects">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              Explore My Work
-            </a>
-            <a href="#contact" class="btn btn-outline magnetic" aria-label="Contact me">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Let's Connect
-            </a>
-          </div>
-
-          <!-- Meta info -->
-          <div class="hero-meta" aria-label="Location and availability">
-            <div class="hero-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Gorakhpur, India
-            </div>
-            <div class="hero-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              B.Tech CSE · MMMUT · 2028
-            </div>
-            <div class="hero-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
- CGPA 7.33 / 10
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Avatar + Stat Cards -->
-        <div class="hero-right" aria-label="Profile and statistics">
-          <div class="hero-avatar-wrap">
-            <!-- Rotating dashed ring -->
-            <div class="hero-avatar-ring" aria-hidden="true"></div>
-
-            <!-- Avatar -->
-            <div class="hero-avatar" role="img" aria-label="Priyanshu Chaurasia profile photo">
-              <img src="https://placehold.co/400x400/0A0A0A/C8FF00?text=PC" alt="Priyanshu Chaurasia" loading="eager" />
-            </div>
-
-            <!-- Floating Stat Cards -->
-            <div class="hero-stat-card" aria-label="200+ Students Placed">
-              <div class="hero-stat-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </div>
-              <div class="hero-stat-number" data-count="200" data-suffix="+">0+</div>
-          <div class="hero-stat-label">Students Placed</div>
-            </div>
-
-            <div class="hero-stat-card" aria-label="37 Team Members Led">
-              <div class="hero-stat-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
-              </div>
-              <div class="hero-stat-number" data-count="37" data-suffix="">0</div>
-          <div class="hero-stat-label">Team Members Led</div>
-            </div>
-
-            <div class="hero-stat-card" aria-label="10+ Hackathons">
-              <div class="hero-stat-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <div class="hero-stat-number" data-count="10" data-suffix="+">0+</div>
-          <div class="hero-stat-label">Hackathons</div>
-            </div>
-
-            <div class="hero-stat-card" aria-label="1247 GitHub Contributions">
-              <div class="hero-stat-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div class="hero-stat-number" data-count="1247" data-suffix="">0</div>
-          <div class="hero-stat-label">GitHub Contributions</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="hero-scroll-indicator" aria-label="Scroll to explore">
-        <div class="scroll-mouse" aria-hidden="true">
-          <div class="scroll-wheel"></div>
-        </div>
-        <span>Scroll</span>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════
-         MARQUEE STRIP
-    ══════════════════════════════════ -->
-    <div class="marquee-strip" aria-hidden="true">
-      <div class="marquee-track">
-          <span class="marquee-item"><span class="marquee-dot"></span> React.js</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Next.js</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> TypeScript</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Node.js</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> NestJS</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Prisma</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> PostgreSQL</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> PyTorch</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> LangChain</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Docker</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> FastAPI</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Socket.IO</span>
-          <!-- duplicate for seamless loop -->
-          <span class="marquee-item"><span class="marquee-dot"></span> React.js</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Next.js</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> TypeScript</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Node.js</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> NestJS</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Prisma</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> PostgreSQL</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> PyTorch</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> LangChain</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Docker</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> FastAPI</span>
-          <span class="marquee-item"><span class="marquee-dot"></span> Socket.IO</span>
-        </div>
-    </div>
-
-    <!-- ══════════════════════════════════
-         ABOUT SECTION
-    ══════════════════════════════════ -->
-    <section id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="about-grid">
-
-          <!-- Visual side -->
-          <div class="about-visual reveal-left">
-            <div class="about-image-wrap">
-              <img src="https://placehold.co/480x600/1A1A1A/C8FF00?text=PRIYANSHU+CHAURASIA" alt="Priyanshu Chaurasia — Full-Stack &amp; Backend Engineer" loading="lazy" />
-              <div class="about-image-overlay" aria-hidden="true"></div>
-            </div>
-            <div class="about-badge-floating" aria-label="CGPA 7.33 in B.Tech Computer Science">
-          <div class="about-badge-number">7.33</div>
-          <div class="about-badge-text">CGPA · B.Tech CSE</div>
-            </div>
-          </div>
-
-          <!-- Content side -->
-          <div class="about-content">
-            <p class="section-label">About Me</p>
-            <h2 class="section-title" id="about-heading">
-              Turning <span class="accent">Ideas</span><br>Into Reality
-            </h2>
-
-            <p class="about-text reveal">
-              Hey! I'm <strong>Priyanshu Chaurasia</strong>, a Full-Stack &amp; Backend Engineer based in Gorakhpur, Uttar Pradesh. I'm a B.Tech Computer Science student at MMMUT and the CTO of Gryork Consultants and Washtro — designing architectures, leading engineering teams and shipping systems that run in production.
-            </p>
-
-            <p class="about-text reveal">
-              I founded Nexus, MMMUT's university-registered technical society, and built its campus platform end to end. Beyond that, I compete seriously — National Winner at IIT Bombay Techfest '25, 5th at Xpecto '26 and 10+ hackathons entered — with 1,247 GitHub contributions across 219 active days.
-            </p>
-
-            <!-- Interests -->
-            <div class="about-interests reveal">
-              <span class="interest-tag">🚀 Startups</span>
-              <span class="interest-tag">🏆 Hackathons</span>
-              <span class="interest-tag">🤖 Agentic AI &amp; RAG</span>
-              <span class="interest-tag">👁️ Computer Vision</span>
-              <span class="interest-tag">🎓 Teaching</span>
-              <span class="interest-tag">🌐 Open Source</span>
-            </div>
-
-            <!-- Philosophy quote -->
-            <blockquote class="about-philosophy reveal">
-              <p>"The constraint-satisfaction timetable solver runs in production: 41 courses, 31 faculty, 1,955 weekly contact hours — conflict-free."</p>
-          <cite>— Nexus timetable solver, live at MMMUT</cite>
-            </blockquote>
-
-            <!-- CTAs -->
-            <div class="hero-ctas reveal" style="margin-top: 8px;">
-              <a href="resume.pdf" class="btn btn-dark" aria-label="Download CV" download>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                Download CV
-              </a>
-              <a href="#contact" class="btn btn-outline" aria-label="Get in touch">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                Get In Touch
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════
-         SKILLS SECTION
-    ══════════════════════════════════ -->
-    <section id="skills" aria-labelledby="skills-heading">
-      <div class="container">
-        <p class="section-label reveal">Technical Arsenal</p>
-        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-bottom:0;">
-          <h2 class="section-title reveal" id="skills-heading">
-            Skills &amp;<br><span class="accent">Expertise</span>
-          </h2>
-          <p class="section-subtitle reveal" style="max-width:400px;">
-            The toolkit I use to build and ship production-grade systems — across web, mobile, backend, data and AI.
-          </p>
-        </div>
-
-        <!-- Skill Category Grid -->
-        <div class="skills-categories" aria-label="Skill categories">
-
-          <!-- Frontend -->
-          <div class="skill-category" role="region" aria-label="Frontend skills">
-            <div class="skill-category-header">
-              <div class="skill-category-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <span class="skill-category-title">Frontend</span>
-            </div>
-            <ul class="skill-list" role="list">
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">React.js</span></div>
-                <span class="skill-percent">92%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="92" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="React.js proficiency 92%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Next.js</span></div>
-                <span class="skill-percent">88%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="88" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Next.js proficiency 88%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">React Native / Expo</span></div>
-                <span class="skill-percent">82%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="82" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="React Native Expo proficiency 82%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Tailwind CSS</span></div>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Tailwind CSS proficiency 90%"></div></div>
-            </li>
-          </ul>
-          </div>
-
-          <!-- Backend -->
-          <div class="skill-category" role="region" aria-label="Backend skills">
-            <div class="skill-category-header">
-              <div class="skill-category-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-              </div>
-              <span class="skill-category-title">Backend</span>
-            </div>
-            <ul class="skill-list" role="list">
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Node.js / Express</span></div>
-                <span class="skill-percent">92%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="92" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Node.js Express proficiency 92%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">NestJS</span></div>
-                <span class="skill-percent">78%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="78" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="NestJS proficiency 78%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Python / FastAPI</span></div>
-                <span class="skill-percent">80%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Python FastAPI proficiency 80%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Socket.IO / WebSocket</span></div>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Socket.IO WebSocket proficiency 85%"></div></div>
-            </li>
-          </ul>
-          </div>
-
-          <!-- Languages & Databases -->
-          <div class="skill-category" role="region" aria-label="Languages and database skills">
-            <div class="skill-category-header">
-              <div class="skill-category-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
-              </div>
-              <span class="skill-category-title">Languages &amp; DB</span>
-            </div>
-            <ul class="skill-list" role="list">
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">JavaScript</span></div>
-                <span class="skill-percent">94%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="94" role="progressbar" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency 94%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">TypeScript</span></div>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="TypeScript proficiency 90%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">PostgreSQL / Prisma</span></div>
-                <span class="skill-percent">84%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="84" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" aria-label="PostgreSQL Prisma proficiency 84%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">MongoDB / Redis</span></div>
-                <span class="skill-percent">80%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="MongoDB Redis proficiency 80%"></div></div>
-            </li>
-          </ul>
-          </div>
-
-          <!-- Tools & DevOps -->
-          <div class="skill-category" role="region" aria-label="AI and infrastructure skills">
-            <div class="skill-category-header">
-              <div class="skill-category-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
-              <span class="skill-category-title">AI &amp; Infra</span>
-            </div>
-            <ul class="skill-list" role="list">
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">PyTorch</span></div>
-                <span class="skill-percent">78%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="78" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="PyTorch proficiency 78%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">LangChain / LangGraph</span></div>
-                <span class="skill-percent">82%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="82" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="LangChain LangGraph proficiency 82%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Docker</span></div>
-                <span class="skill-percent">76%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="76" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" aria-label="Docker proficiency 76%"></div></div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-item-header">
-                <div class="skill-icon-name"><span class="skill-dot"></span><span class="skill-name">Git / GitHub</span></div>
-                <span class="skill-percent">92%</span>
-              </div>
-              <div class="skill-bar-bg"><div class="skill-bar" data-width="92" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Git GitHub proficiency 92%"></div></div>
-            </li>
-          </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════
-         PROJECTS SECTION
-    ══════════════════════════════════ -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="projects-header">
-          <div class="projects-header-left">
-            <p class="section-label">Featured Work</p>
-            <h2 class="section-title" id="projects-heading">
-              Selected<br><span class="highlight">Projects</span>
-            </h2>
-          </div>
-
-          <!-- Filter Buttons -->
-          <div class="filter-buttons" role="group" aria-label="Filter projects by category">
-            <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter-btn" data-filter="frontend" aria-pressed="false">Frontend</button>
-            <button class="filter-btn" data-filter="backend" aria-pressed="false">Backend</button>
-            <button class="filter-btn" data-filter="fullstack" aria-pressed="false">Full-Stack</button>
-            <button class="filter-btn" data-filter="ai" aria-pressed="false">AI</button>
-          </div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="projects-grid" aria-label="Project showcase">
-
-          <!-- Project: Haazir -->
-          <article class="project-card" data-categories="fullstack, backend, ai" aria-label="Haazir project">
-            <div class="project-thumb">
-              <img src="https://placehold.co/800x450/1A1A1A/C8FF00?text=Haazir" alt="Haazir — attendance verification and timetabling" loading="lazy" />
-              <div class="project-thumb-overlay">
-                <a href="https://github.com/priyanshu-1006" class="project-link-btn github" target="_blank" rel="noopener noreferrer" aria-label="View Haazir on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-body">
-              <span class="project-category-tag">Full-Stack / AI</span>
-              <h3 class="project-title">Haazir</h3>
-              <p class="project-desc">Attendance verification &amp; timetabling with three-factor checks — rotating JWT-signed QR, a 100 m Haversine geo-fence and 512-D ArcFace matching, with raw images never stored. Top 50 of 1,300+ teams at Hackatron '25, IIIT Gwalior.</p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">Prisma</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">PyTorch</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project: Cognito Learning Hub -->
-          <article class="project-card" data-categories="fullstack, backend" aria-label="Cognito Learning Hub project">
-            <div class="project-thumb">
-              <img src="https://placehold.co/800x450/1A1A1A/C8FF00?text=Cognito+Learning+Hub" alt="Cognito Learning Hub — live learning platform" loading="lazy" />
-              <div class="project-thumb-overlay">
-                <a href="https://github.com/priyanshu-1006" class="project-link-btn github" target="_blank" rel="noopener noreferrer" aria-label="View Cognito Learning Hub on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-body">
-              <span class="project-category-tag">Full-Stack</span>
-              <h3 class="project-title">Cognito Learning Hub</h3>
-              <p class="project-desc">Led a team building a 12-microservice live learning platform — WebRTC/MediaSoup video, Socket.IO state and Redis-backed Bull queues across four role hierarchies. National Winner at IIT Bombay Techfest '25.</p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB Atlas</span>
-                <span class="tech-tag">Redis</span>
-                <span class="tech-tag">Socket.IO</span>
-                <span class="tech-tag">MediaSoup</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project: FractureVision AI -->
-          <article class="project-card" data-categories="ai, backend" aria-label="FractureVision AI project">
-            <div class="project-thumb">
-              <img src="https://placehold.co/800x450/1A1A1A/C8FF00?text=FractureVision+AI" alt="FractureVision AI — radiograph fracture detection" loading="lazy" />
-              <div class="project-thumb-overlay">
-                <a href="https://github.com/priyanshu-1006" class="project-link-btn github" target="_blank" rel="noopener noreferrer" aria-label="View FractureVision AI on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-body">
-              <span class="project-category-tag">AI / Backend</span>
-              <h3 class="project-title">FractureVision AI</h3>
-              <p class="project-desc">Two-stage radiograph pipeline: a ViT-Base/16 classifier at 99.01% accuracy feeding a YOLOv10n localiser at 0.933 mAP@0.5 over ten fracture classes, 18.8 ms GPU inference, with Grad-CAM heatmaps. 5th Place &amp; Special Mention at Xpecto '26.</p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="tech-tag">PyTorch</span>
-                <span class="tech-tag">timm</span>
-                <span class="tech-tag">Ultralytics</span>
-                <span class="tech-tag">Grad-CAM</span>
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">React</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project: Nexus Campus Platform -->
-          <article class="project-card" data-categories="frontend, fullstack" aria-label="Nexus Campus Platform project">
-            <div class="project-thumb">
-              <img src="https://placehold.co/800x450/1A1A1A/C8FF00?text=Nexus" alt="Nexus — MMMUT campus platform" loading="lazy" />
-              <div class="project-thumb-overlay">
-                <a href="https://github.com/priyanshu-1006" class="project-link-btn github" target="_blank" rel="noopener noreferrer" aria-label="View Nexus Campus Platform on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-                <a href="https://mmmut.app" class="project-link-btn demo" target="_blank" rel="noopener noreferrer" aria-label="View Nexus Campus Platform live">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-                  Live Site
-                </a>
-              </div>
-            </div>
-            <div class="project-body">
-              <span class="project-category-tag">Full-Stack</span>
-              <h3 class="project-title">Nexus Campus Platform</h3>
-              <p class="project-desc">A campus platform replacing ten fragmented tools — 5 web portals, 2 React Native apps and 5 RAG-grounded AI assistants on one Node.js backend with a 70+ model Prisma schema. 33k monthly page views.</p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">Prisma</span>
-                <span class="tech-tag">RAG</span>
-                <span class="tech-tag">LangChain</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project: BookEase -->
-          <article class="project-card" data-categories="fullstack, frontend, backend" aria-label="BookEase project">
-            <div class="project-thumb">
-              <img src="https://placehold.co/800x450/1A1A1A/C8FF00?text=BookEase" alt="BookEase — appointment-booking system" loading="lazy" />
-              <div class="project-thumb-overlay">
-                <a href="https://github.com/priyanshu-1006" class="project-link-btn github" target="_blank" rel="noopener noreferrer" aria-label="View BookEase on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-body">
-              <span class="project-category-tag">Full-Stack</span>
-              <h3 class="project-title">BookEase</h3>
-              <p class="project-desc">A MERN appointment-booking system shipped from brief to live deployment in four weeks during the Full Stack Developer internship at Bharat Interns Pvt Ltd.</p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Express</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project: Gryork Marketplace -->
-          <article class="project-card" data-categories="fullstack, backend" aria-label="Gryork Marketplace project">
-            <div class="project-thumb">
-              <img src="https://placehold.co/800x450/1A1A1A/C8FF00?text=Gryork+Marketplace" alt="Gryork — bill-discounting marketplace" loading="lazy" />
-              <div class="project-thumb-overlay">
-                <a href="https://github.com/priyanshu-1006" class="project-link-btn github" target="_blank" rel="noopener noreferrer" aria-label="View Gryork Marketplace on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-body">
-              <span class="project-category-tag">Full-Stack</span>
-              <h3 class="project-title">Gryork Marketplace</h3>
-              <p class="project-desc">A bill-discounting marketplace connecting EPC contractors, sub-contractors and NBFCs. Full technical architecture designed as CTO and built with a 9–10 engineer team; won an INR 2.5 lakh grant from IIIT Allahabad.</p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="tech-tag">System Design</span>
-                <span class="tech-tag">Marketplace</span>
-                <span class="tech-tag">FinTech</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════
-         TEAM / JOURNEY SECTION
-    ══════════════════════════════════ -->
-    <section id="team" aria-labelledby="team-heading">
-      <div class="container">
-        <div class="team-intro">
-          <!-- Left: Text + Timeline -->
-          <div>
-            <p class="section-label reveal">The Journey</p>
-            <h2 class="section-title reveal" id="team-heading">
-              Education &amp;<br><span class="accent">Experience</span>
-            </h2>
-            <p class="section-subtitle reveal" style="margin-bottom: 40px;">
-              The milestones that shaped me — from school in Varanasi to leading engineering teams and shipping systems that run in production.
-            </p>
-
-            <!-- Timeline -->
-            <div class="timeline" aria-label="Education and experience timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">01</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">2021 – 2023</div>
-                  <div class="timeline-title">Sunbeam English School, Varanasi</div>
-                  <p class="timeline-desc">Class XII (PCM) 80% and Class X 93%. NTSE State Rank 17 (OBC) in Class X.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">02</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">2024 – 2028</div>
-                  <div class="timeline-title">B.Tech CSE, MMMUT Gorakhpur</div>
-                  <p class="timeline-desc">Computer Science &amp; Engineering at Madan Mohan Malaviya University of Technology — CGPA 7.33/10.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">03</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">Jun – Jul 2025</div>
-                  <div class="timeline-title">Full Stack Developer Intern, Bharat Interns</div>
-                  <p class="timeline-desc">Shipped BookEase, a MERN appointment-booking system, from brief to live deployment in four weeks.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">04</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">Jul 2025 – Present</div>
-                  <div class="timeline-title">Executive Member, GDG on Campus MMMUT</div>
-                  <p class="timeline-desc">Built the chapter web presence and its end-to-end induction system — registration, evaluation, automated mail, multi-role access — for 250+ students.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">05</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">Sep 2025 – Present</div>
-                  <div class="timeline-title">CTO, Gryork Consultants</div>
-                  <p class="timeline-desc">Architecting a bill-discounting marketplace for EPC contractors, sub-contractors and NBFCs; leading 9–10 engineers. DPIIT-registered, incubated at IIIT Allahabad.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">06</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">Nov 2025 – Present</div>
-                  <div class="timeline-title">Founder &amp; President, Nexus</div>
-                  <p class="timeline-desc">Founded MMMUT's technical society and its campus platform, approved by the Vice Chancellor in April 2026. Leading a team of 37.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true">07</div>
-                <div class="timeline-content">
-                  <div class="timeline-year">2026 – Present</div>
-                  <div class="timeline-title">CTO, Washtro</div>
-                  <p class="timeline-desc">Architecting a 12-stage no-skip garment pipeline with an append-only audit log and integer-paise money.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Stats Visual -->
-          <div class="reveal-right" style="display:flex; flex-direction:column; gap:20px;">
-            <div style="background:#fff; border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-md); border: 1px solid rgba(10,10,10,0.06);">
-              <div style="font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px;">Stack Overview</div>
-              <div style="display:flex; flex-direction:column; gap:14px;">
-                <div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:600;">Frontend</span><span style="font-size:0.85rem;font-weight:700;color:var(--accent-secondary);">React · Next.js · RN</span></div>
-                  <div class="skill-bar-bg"><div class="skill-bar" data-width="92"></div></div>
-                </div>
-                <div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:600;">Backend</span><span style="font-size:0.85rem;font-weight:700;color:var(--accent-secondary);">Node · NestJS · FastAPI</span></div>
-                  <div class="skill-bar-bg"><div class="skill-bar" data-width="90"></div></div>
-                </div>
-                <div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:600;">AI / ML</span><span style="font-size:0.85rem;font-weight:700;color:var(--accent-secondary);">PyTorch · RAG · ViT</span></div>
-                  <div class="skill-bar-bg"><div class="skill-bar" data-width="78"></div></div>
-                </div>
-                <div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:600;">DevOps / Infra</span><span style="font-size:0.85rem;font-weight:700;color:var(--accent-secondary);">Docker · Vercel · Turborepo</span></div>
-                  <div class="skill-bar-bg"><div class="skill-bar" data-width="70"></div></div>
-                </div>
-              </div>
-            </div>
-            <div style="background: var(--accent); border-radius: var(--radius-lg); padding: 28px; display:flex;flex-direction:column;gap:8px;">
-              <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;letter-spacing:-0.04em;color:var(--text);" data-count="1247" data-suffix="">0</div>
-            <div style="font-size:0.9rem;font-weight:600;color:rgba(10,10,10,0.7);">GitHub Contributions</div>
-            <div style="font-size:0.8rem;color:rgba(10,10,10,0.5);">Across 219 active days · top contributor in 12 repositories</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Team Cards -->
-        <div>
-          <h3 class="section-title reveal" style="font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 48px;">
-            Leadership <span class="accent">Roles</span>
-          </h3>
-          <div class="team-cards">
-
-            <!-- Gryork Consultants -->
-            <article class="team-card" aria-label="Gryork Consultants">
-              <div class="team-avatar">
-                <img src="https://placehold.co/200x200/0A0A0A/C8FF00?text=GC" alt="Gryork Consultants" loading="lazy" />
-              </div>
-              <div>
-                <h4 class="team-name">Gryork Consultants</h4>
-                <div class="team-role">Chief Technology Officer</div>
-              </div>
-              <p class="team-bio">DPIIT-registered and incubated at IIIT Allahabad. Designed the full architecture for a bill-discounting marketplace, lead 9–10 engineers, and ran Gryork Techpreneur 2026 — teaching agentic AI and full-stack development to 85+ students.</p>
-            </article>
-
-            <!-- Nexus — MMMUT -->
-            <article class="team-card" aria-label="Nexus — MMMUT">
-              <div class="team-avatar">
-                <img src="https://placehold.co/200x200/0A0A0A/C8FF00?text=NX" alt="Nexus — MMMUT" loading="lazy" />
-              </div>
-              <div>
-                <h4 class="team-name">Nexus — MMMUT</h4>
-                <div class="team-role">Founder &amp; President</div>
-              </div>
-              <p class="team-bio">University-registered technical society. Founded and architected the campus platform replacing ten fragmented tools — 5 web portals, 2 React Native apps and 5 RAG-grounded AI assistants, led by a team of 37.</p>
-              <div class="team-socials" aria-label="Nexus — MMMUT links">
-                <a href="https://mmmut.app" class="social-icon-btn" aria-label="Nexus — MMMUT website" target="_blank" rel="noopener noreferrer">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Washtro -->
-            <article class="team-card" aria-label="Washtro">
-              <div class="team-avatar">
-                <img src="https://placehold.co/200x200/0A0A0A/C8FF00?text=WT" alt="Washtro" loading="lazy" />
-              </div>
-              <div>
-                <h4 class="team-name">Washtro</h4>
-                <div class="team-role">Chief Technology Officer</div>
-              </div>
-              <p class="team-bio">Quick-laundry logistics. Architected a garment-level chain of custody — a 12-stage no-skip pipeline where every transition passes one guarded state machine, with an append-only audit log.</p>
-            </article>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════
-         ACHIEVEMENTS SECTION
-    ══════════════════════════════════ -->
-    <section id="achievements" aria-labelledby="achievements-heading">
-      <div class="container">
-        <p class="section-label reveal">Wins &amp; Milestones</p>
-        <h2 class="section-title reveal" id="achievements-heading">
-          Achievements &amp;<br><span class="accent">Recognition</span>
-        </h2>
-
-        <!-- Achievements Grid -->
-        <div class="achievements-grid" aria-label="Achievements list">
-
-          <article class="achievement-card" aria-label="National Winner — IIT Bombay Techfest '25">
-            <div class="achievement-emoji" role="img" aria-label="Trophy">🏆</div>
-            <div class="achievement-content">
-              <div class="achievement-label">Hackathon</div>
-              <h3 class="achievement-title">National Winner — IIT Bombay Techfest '25</h3>
-              <p class="achievement-desc">Won nationally with Cognito Learning Hub, a 12-microservice live learning platform, after 50 minutes of architecture evaluation.</p>
-              <span class="achievement-year">2025</span>
-            </div>
-          </article>
-
-          <article class="achievement-card" aria-label="5th Place &amp; Special Mention — Xpecto '26">
-            <div class="achievement-emoji" role="img" aria-label="Medal">🥈</div>
-            <div class="achievement-content">
-              <div class="achievement-label">Hackathon</div>
-              <h3 class="achievement-title">5th Place &amp; Special Mention — Xpecto '26</h3>
-              <p class="achievement-desc">Placed 5th at IIT Mandi's Xpecto with FractureVision AI — ViT-Base/16 classification plus YOLOv10n localisation with Grad-CAM.</p>
-              <span class="achievement-year">2026</span>
-            </div>
-          </article>
-
-          <article class="achievement-card" aria-label="Top 50 of 1,300+ Teams — Hackatron '25">
-            <div class="achievement-emoji" role="img" aria-label="Star">🌟</div>
-            <div class="achievement-content">
-              <div class="achievement-label">Hackathon</div>
-              <h3 class="achievement-title">Top 50 of 1,300+ Teams — Hackatron '25</h3>
-              <p class="achievement-desc">Reached the top 50 of more than 1,300 teams at IIIT Gwalior with Haazir, a three-factor attendance verification and timetabling system.</p>
-              <span class="achievement-year">2025</span>
-            </div>
-          </article>
-
-          <article class="achievement-card" aria-label="Techkriti '26 &amp; Ethos '25 Finalist">
-            <div class="achievement-emoji" role="img" aria-label="Scroll">📜</div>
-            <div class="achievement-content">
-              <div class="achievement-label">Finalist</div>
-              <h3 class="achievement-title">Techkriti '26 &amp; Ethos '25 Finalist</h3>
-              <p class="achievement-desc">Finalist at Techkriti '26 (IIT Kanpur) and the Ethos '25 ML Hackathon (IIT Guwahati), among 10+ hackathons entered.</p>
-              <span class="achievement-year">2025–2026</span>
-            </div>
-          </article>
-
-          <article class="achievement-card" aria-label="INR 2.5 Lakh Grant — IIIT Allahabad">
-            <div class="achievement-emoji" role="img" aria-label="Rocket">🚀</div>
-            <div class="achievement-content">
-              <div class="achievement-label">Grant</div>
-              <h3 class="achievement-title">INR 2.5 Lakh Grant — IIIT Allahabad</h3>
-              <p class="achievement-desc">Awarded for technical architecture; Gryork Consultants is DPIIT-registered and incubated at IIIT Allahabad.</p>
-              <span class="achievement-year">Gryork</span>
-            </div>
-          </article>
-
-          <article class="achievement-card" aria-label="Design Patent in Preparation">
-            <div class="achievement-emoji" role="img" aria-label="Graduate cap">🎓</div>
-            <div class="achievement-content">
-              <div class="achievement-label">IP &amp; Academics</div>
-              <h3 class="achievement-title">Design Patent in Preparation</h3>
-              <p class="achievement-desc">Filing a design patent on the attendance verification and timetable generation methods. Earlier: NTSE State Rank 17 (OBC), Class X.</p>
-              <span class="achievement-year">In progress</span>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Stats Row -->
-        <div class="achievements-stats" aria-label="Career statistics">
-          <div class="stat-item reveal">
-            <span class="stat-number" data-count="33" data-suffix="K+">0K+</span>
-            <div class="stat-label">Monthly Page Views</div>
-          </div>
-          <div class="stat-item reveal">
-            <span class="stat-number" data-count="85" data-suffix="+">0+</span>
-            <div class="stat-label">Students Taught</div>
-          </div>
-          <div class="stat-item reveal">
-            <span class="stat-number" data-count="250" data-suffix="+">0+</span>
-            <div class="stat-label">Students Onboarded</div>
-          </div>
-          <div class="stat-item reveal">
-            <span class="stat-number" data-count="41" data-suffix="">0</span>
-            <div class="stat-label">Courses Auto-Scheduled</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════
-         CONTACT SECTION
-    ══════════════════════════════════ -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <p class="section-label">Get In Touch</p>
-        <h2 class="section-title reveal" id="contact-heading">
-          Let's Build<br>Something <span class="accent">Great</span>
-        </h2>
-
-        <div class="contact-grid">
-
-          <!-- Left: Info -->
-          <div class="contact-info">
-            <p class="contact-description reveal">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you want to hire me, collaborate, or just say hi — my inbox is always open!
-            </p>
-
-            <div class="contact-items reveal">
-              <div class="contact-item">
-                <div class="contact-item-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </div>
-                <div>
-                  <div class="contact-item-label">Email</div>
-                  <a href="mailto:priyanshuchaurasiadlw@gmail.com" class="contact-item-value" style="cursor:none;">priyanshuchaurasiadlw@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-item-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div>
-                  <div class="contact-item-label">Location</div>
-                  <div class="contact-item-value">Gorakhpur, Uttar Pradesh, India</div>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-item-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="contact-item-label">Phone</div>
-              <a href="tel:+916394180796" class="contact-item-value" style="cursor:none;">+91 63941 80796</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="reveal">
-              <p class="contact-socials-title">Find Me Online</p>
-              <div class="contact-socials" aria-label="Social media links">
-                <a href="https://github.com/priyanshu-1006" class="contact-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/priyanshu-chaurasia" class="contact-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                  LinkedIn
-                </a>
-                <a href="https://mmmut.app" class="contact-social-link" target="_blank" rel="noopener noreferrer" aria-label="mmmut.app website">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              mmmut.app
-                </a>
-              </div>
-            </div>
-
-            <!-- Collaboration CTA box -->
-            <div class="reveal" style="padding: 24px; background: linear-gradient(135deg, #C8FF00 0%, #a8d900 100%); border-radius: var(--radius-md);">
-              <div style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px;">Open to Collaboration</div>
-              <p style="font-size: 0.88rem; color: rgba(10,10,10,0.7); line-height: 1.6;">Always up for internships, hackathon teams, open-source work and building ambitious products with strong engineering teams. Let's build something great together!</p>
-            </div>
-          </div>
-
-          <!-- Right: Contact Form -->
-          <div class="contact-form-wrap">
-            <h3 class="contact-form-title">Send Me a Message</h3>
-
-            <!-- Form content (hidden on success) -->
-            <div id="form-content">
-              <form id="contact-form" novalidate aria-label="Contact form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label" for="cf-name">Your Name <span aria-hidden="true" style="color: #ef4444;">*</span></label>
-                    <input
-                      type="text"
-                      id="cf-name"
-                      name="name"
-                      class="form-input"
-                      placeholder="Your name"
-                      autocomplete="name"
-                      aria-required="true"
-                      aria-describedby="cf-name-error"
-                    />
-                    <span id="cf-name-error" class="form-error-msg" role="alert" aria-live="polite"></span>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="cf-email">Email Address <span aria-hidden="true" style="color: #ef4444;">*</span></label>
-                    <input
-                      type="email"
-                      id="cf-email"
-                      name="email"
-                      class="form-input"
-                      placeholder="you@example.com"
-                      autocomplete="email"
-                      aria-required="true"
-                      aria-describedby="cf-email-error"
-                    />
-                    <span id="cf-email-error" class="form-error-msg" role="alert" aria-live="polite"></span>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="cf-subject">Subject <span aria-hidden="true" style="color: #ef4444;">*</span></label>
-                  <input
-                    type="text"
-                    id="cf-subject"
-                    name="subject"
-                    class="form-input"
-                    placeholder="Project Inquiry / Collaboration"
-                    aria-required="true"
-                    aria-describedby="cf-subject-error"
-                  />
-                  <span id="cf-subject-error" class="form-error-msg" role="alert" aria-live="polite"></span>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="cf-message">Message <span aria-hidden="true" style="color: #ef4444;">*</span></label>
-                  <textarea
-                    id="cf-message"
-                    name="message"
-                    class="form-textarea"
-                    placeholder="Hi Priyanshu, I'd love to talk about..."
-                    aria-required="true"
-                    aria-describedby="cf-message-error"
-                  ></textarea>
-                  <span id="cf-message-error" class="form-error-msg" role="alert" aria-live="polite"></span>
-                </div>
-
-                <button type="submit" class="form-submit-btn" aria-label="Send message">
-                  Send Message
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-                </button>
-              </form>
-            </div>
-
-            <!-- Success message -->
-            <div id="form-success" class="form-success" role="status" aria-live="polite">
-              <div class="success-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              </div>
-              <h4 class="success-title">Message Sent! 🎉</h4>
-              <p class="success-text">Thank you for reaching out! I've received your message and will get back to you within 24 hours. Looking forward to connecting!</p>
-              <a href="#" class="btn btn-primary" style="margin-top:8px;" onclick="location.reload(); return false;" aria-label="Send another message">Send Another</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ══════════════════════════════════
-       FOOTER
-  ══════════════════════════════════ -->
-  <footer aria-label="Site footer">
-    <div class="footer-main">
-      <!-- Brand -->
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-mark" aria-hidden="true">PC</div>
-          Priyanshu Chaurasia
-        </div>
-        <p class="footer-tagline">Full-Stack &amp; Backend Engineer building production systems, agentic AI and campus-scale platforms.</p>
-        <div class="footer-social-links" aria-label="Social media links">
-          <a href="https://github.com/priyanshu-1006" class="footer-social-btn" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/priyanshu-chaurasia" class="footer-social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="mailto:priyanshuchaurasiadlw@gmail.com" class="footer-social-btn" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </a>
-          <a href="https://mmmut.app" class="footer-social-btn" aria-label="mmmut.app website" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Quick Nav -->
-      <div>
-        <h4 class="footer-col-title">Navigation</h4>
-        <ul class="footer-links" role="list">
-          <li><a href="#hero"         class="footer-link">Home</a></li>
-          <li><a href="#about"        class="footer-link">About</a></li>
-          <li><a href="#skills"       class="footer-link">Skills</a></li>
-          <li><a href="#projects"     class="footer-link">Projects</a></li>
-          <li><a href="#team"         class="footer-link">Journey</a></li>
-          <li><a href="#achievements" class="footer-link">Achievements</a></li>
-          <li><a href="#contact"      class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Projects -->
-      <div>
-        <h4 class="footer-col-title">Projects</h4>
-        <ul class="footer-links" role="list">
-          <li><a href="#projects" class="footer-link">Haazir</a></li>
-          <li><a href="#projects" class="footer-link">Cognito Learning Hub</a></li>
-          <li><a href="#projects" class="footer-link">FractureVision AI</a></li>
-          <li><a href="#projects" class="footer-link">Nexus</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact Info -->
-      <div>
-        <h4 class="footer-col-title">Contact</h4>
-        <ul class="footer-links" role="list">
-          <li><a href="mailto:priyanshuchaurasiadlw@gmail.com" class="footer-link" style="cursor:none;word-break:break-all;">priyanshuchaurasiadlw@gmail.com</a></li>
-          <li><span class="footer-link" style="pointer-events:none;">Gorakhpur, India</span></li>
-          <li><a href="resume.pdf" class="footer-link" download>Resume / CV</a></li>
-          <li><a href="#contact" class="footer-link" style="color: var(--accent);">Hire Me →</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p class="footer-copy">
-        &copy; <span id="footer-year">2026</span> <span>Priyanshu Chaurasia</span>. All rights reserved.
-      </p>
-      <p class="footer-made">
-        Crafted with <span>♥</span> for GDG MMMUT — Prompt 2 Pixel, Round 1
-      </p>
-    </div>
-  </footer>
-
-  <!-- ══════════════════════════════════
-       SCRIPTS
-  ══════════════════════════════════ -->
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  <!-- Main JS -->
-  <script src="main.js" defer></script>
-
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="loader" aria-hidden="true"><div class="ld-in"><span class="ld-name">Priyanshu Chaurasia</span><span class="ld-count mono"><b id="ldNum">000</b>%</span></div><i class="ld-bar" id="ldBar"></i></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+<div class="bar">
+<a class="logo" href="#hero" aria-label="Priyanshu Chaurasia — home">Priyanshu<sup>®</sup></a>
+<nav class="nav" aria-label="Main"><i class="ind" aria-hidden="true"></i><ul><li><a href="#about" data-spy="about">About</a></li><li><a href="#journey" data-spy="journey">Journey</a></li><li><a href="#work" data-spy="work">Work</a></li><li><a href="#capabilities" data-spy="capabilities">Capabilities</a></li><li><a href="#recognition" data-spy="recognition">Recognition</a></li></ul></nav>
+<div class="bar-r"><a class="pill" href="#contact" data-magnet>Let’s talk</a><button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button></div>
+</div>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+<ul><li><a href="#hero"><span class="mono">00</span><span class="m-t">Home</span></a></li><li><a href="#about"><span class="mono">01</span><span class="m-t">About</span></a></li><li><a href="#journey"><span class="mono">02</span><span class="m-t">Journey</span></a></li><li><a href="#work"><span class="mono">03</span><span class="m-t">Work</span></a></li><li><a href="#capabilities"><span class="mono">04</span><span class="m-t">Capabilities</span></a></li><li><a href="#recognition"><span class="mono">05</span><span class="m-t">Recognition</span></a></li><li><a href="#faq"><span class="mono">06</span><span class="m-t">Questions</span></a></li><li><a href="#contact"><span class="mono">07</span><span class="m-t">Contact</span></a></li></ul>
+<p class="menu-f mono">priyanshuchaurasiadlw@gmail.com</p>
+</div>
+
+<main id="main">
+
+<section class="hero" id="hero" aria-label="Introduction">
+<div class="wrap">
+<div class="hero-meta mono"><span>Systems &amp; Platform Engineer</span><span>Gorakhpur · Varanasi, IN — <time id="clock">--:--</time> IST</span></div>
+<h1 aria-label="Priyanshu Chaurasia"><span class="ln a" aria-hidden="true">Priyanshu</span><span class="ln b" aria-hidden="true">Chaurasia</span></h1>
+<div class="hero-grid">
+<figure class="portrait"><div class="mask"><img src="assets/me-dark.webp" alt="Illustrated portrait of Priyanshu Chaurasia at a laptop" width="900" height="1125" fetchpriority="high" decoding="async" data-parallax></div></figure>
+<div class="hero-copy">
+<p class="lede h-up">I build the systems institutions run on. Third-year CSE student at MMMUT, CTO at Gryork and Washtro, founder-President of Nexsus.</p>
+<p class="words h-up" aria-label="Architect, Builder, Founder, Leader"><span class="words-in" aria-hidden="true"><b>Architect</b><b>Builder</b><b>Founder</b><b>Leader</b></span></p>
+</div>
+<div class="hero-act h-up">
+<div class="cta"><a class="btn solid" href="#work" data-magnet>Explore my work <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn" href="#contact" data-magnet>Let’s connect</a></div>
+<p class="avail mono"><i aria-hidden="true"></i>Available for internships &amp; SDE roles</p>
+</div>
+</div>
+</div>
+<a class="scroll mono" href="#about" aria-label="Scroll to about"><span>Scroll</span><i aria-hidden="true"></i></a>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-h">
+<div class="wrap">
+<p class="eyebrow mono" data-reveal><span class="dot"></span>About</p>
+<h2 id="about-h" class="sr">About Priyanshu</h2>
+<p class="statement" data-scrub>I’m a third-year Computer Science student at MMMUT, Gorakhpur, and I spend most of my time architecting platforms that other people depend on — a bill-discounting marketplace moving real money, a campus super-app replacing ten fragmented tools, a chain-of-custody system tracking individual garments through a laundry chain.</p>
+<div class="about-grid">
+<div class="about-txt" data-reveal>
+<p>Two of those systems now run companies; one runs a society I founded and preside over.</p>
+<p>I care deeply about correctness guarantees, clean state machines, and systems that hold under load — not just demos that impress in a pitch.</p>
+<p class="mono small">Interests — System architecture · Platform engineering · AI/ML pipelines · Open source · Distributed systems · Developer tooling · Hackathons · EdTech</p>
+<p class="about-links"><a class="ul" href="https://priyanshu-hai.vercel.app/resume.pdf" target="_blank" rel="noopener noreferrer">Download resume ↗</a><a class="ul" href="https://priyanshu-hai.vercel.app/projects" target="_blank" rel="noopener noreferrer">All projects ↗</a></p>
+</div>
+<dl class="stats"><div class="stat" data-reveal><dt><span class="num" data-count="2.5" data-dec="1" data-pre="₹" data-suf="L">₹2.5L</span></dt><dd>Grant won on architecture I designed · IIIT Allahabad</dd></div>
+<div class="stat" data-reveal><dt><span class="num" data-count="10" data-dec="0" data-pre="" data-suf="+">10+</span></dt><dd>Hackathons — finalist in nearly all · IITs &amp; IIITs</dd></div>
+<div class="stat" data-reveal><dt><span class="num" data-count="37" data-dec="0" data-pre="" data-suf="">37</span></dt><dd>Team led as founder-President · Nexsus, MMMUT</dd></div>
+<div class="stat" data-reveal><dt><span class="num" data-count="33" data-dec="0" data-pre="" data-suf="k">33k</span></dt><dd>Page views a month · Nexsus</dd></div></dl>
+</div>
+</div>
+</section>
+
+<section class="journey" id="journey" aria-labelledby="journey-h">
+<div class="wrap">
+<header class="s-head"><p class="eyebrow mono" data-reveal><span class="dot"></span>Journey</p><h2 id="journey-h" data-split>Education <em>(&amp;)</em> the work so far</h2></header>
+<ol class="steps" id="steps"><i class="rail" aria-hidden="true"><b id="railFill"></b></i>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’21</span><span class="mono">2021</span></div>
+<div class="what"><h3>NTSE — State Rank 17 (OBC)</h3><p class="org"><span>Sunbeam English School, Bhagwanpur</span></p><p class="cap">Qualified NTSE in Class X. State Rank 17 (OBC category).</p><div class="fold" id="j0"><div><ul><li>Class X · 93%.</li><li>Varanasi.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j0"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’23</span><span class="mono">2023 — 24</span></div>
+<div class="what"><h3>Class XII, then a drop year</h3><p class="org"><span>Sunbeam English School, Bhagwanpur</span></p><p class="cap">Class XII, PCM, 80% — followed by a drop year of JEE preparation.</p><div class="fold" id="j1"><div><ul><li>Qualified JEE Advanced with 113 marks — short of an IIT seat, which is how I ended up at MMMUT, and why the rest of this list exists.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j1"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’24</span><span class="mono">2024 — 2028</span></div>
+<div class="what"><h3>B.Tech, Computer Science &amp; Engineering</h3><p class="org"><span>Madan Mohan Malaviya University of Technology</span></p><p class="cap">Studying at MMMUT, Gorakhpur. CGPA 7.33/10.</p><div class="fold" id="j2"><div><ul><li>Based between Gorakhpur and Varanasi, Uttar Pradesh.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j2"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’25</span><span class="mono">Jun — Jul 2025</span></div>
+<div class="what"><h3>Full Stack Developer Intern</h3><p class="org"><a class="ul" href="https://bookease-client.vercel.app/" target="_blank" rel="noopener noreferrer">Bharat Interns Pvt Ltd ↗</a></p><p class="cap">Designed and shipped BookEase, a MERN-stack appointment booking system, from brief to live deployment in four weeks.</p></div>
+
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’25</span><span class="mono">Jul 2025 — Present</span></div>
+<div class="what"><h3>Executive Member</h3><p class="org"><a class="ul" href="https://gdg.mmmut.app" target="_blank" rel="noopener noreferrer">Google Developer Groups on Campus, MMMUT ↗</a></p><p class="cap">Designed and built the chapter’s entire web presence at gdg.mmmut.app.</p><div class="fold" id="j4"><div><ul><li>Built the Induction Drive system end-to-end — registrations, evaluation, automated mailing, multi-role access. 250+ students registered.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j4"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’25</span><span class="mono">2025</span></div>
+<div class="what"><h3>Contributor</h3><p class="org"><a class="ul" href="https://mmmut.ac.in/primeai" target="_blank" rel="noopener noreferrer">MMMUT Official Website ↗</a></p><p class="cap">Built the Faculty Development Programme pages on the university’s official site, live at mmmut.ac.in/primeai.</p></div>
+
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’25</span><span class="mono">Sep 2025 — Present</span></div>
+<div class="what"><h3>Chief Technology Officer</h3><p class="org"><a class="ul" href="https://www.gryork.com" target="_blank" rel="noopener noreferrer">Gryork Consultants Pvt Ltd ↗</a></p><p class="cap">Designed the entire technical architecture from a standing start for a bill-discounting marketplace — it won the company a ₹2.5 lakh grant from IIIT Allahabad.</p><div class="fold" id="j6"><div><ul><li>Joined as a founding member in Aug 2025; appointed CTO the following month.</li><li>Lead an engineering team of 9–10.</li><li>Ran <em>Gryork Techpreneur 2026</em> — taught 85+ B.Tech students agentic AI and full-stack development.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j6"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’25</span><span class="mono">Nov 2025 — Present</span></div>
+<div class="what"><h3>Founder &amp; President</h3><p class="org"><a class="ul" href="https://mmmut.app" target="_blank" rel="noopener noreferrer">Nexsus — MMMUT ↗</a></p><p class="cap">Founded and officially registered with the university in April 2026 — one of very few students to found a society during second year.</p><div class="fold" id="j7"><div><ul><li>Lead a team of 37 (15 third-year, 22 second-year).</li><li>Built 5 web portals, 2 React Native apps and 5 RAG-backed AI assistants on one backend.</li><li>CSP solver generates the live CSE department timetable.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j7"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+<li class="step" data-reveal>
+<div class="when"><span class="yr" aria-hidden="true">’26</span><span class="mono">2026 — Present</span></div>
+<div class="what"><h3>Chief Technology Officer</h3><p class="org"><a class="ul" href="https://www.washtro.com" target="_blank" rel="noopener noreferrer">Washtro ↗</a></p><p class="cap">Designed the complete technical architecture for a quick-laundry chain built on garment-level chain of custody.</p><div class="fold" id="j8"><div><ul><li>12-stage no-skip pipeline — one guarded state machine, append-only audit log, HMAC-signed garment IDs.</li></ul></div></div></div>
+<button class="more" type="button" aria-expanded="false" aria-controls="j8"><span class="more-t">Details</span><i aria-hidden="true"></i></button>
+</li>
+</ol>
+</div>
+</section>
+
+<section class="work" id="work" aria-labelledby="work-h">
+<div class="wrap">
+<header class="s-head"><p class="eyebrow mono" data-reveal><span class="dot"></span>Selected work</p><h2 id="work-h" data-split>Built, shipped <em>&amp;</em> still running</h2></header>
+<div class="filters" role="group" aria-label="Filter projects by category" data-reveal><button type="button" aria-pressed="true" data-filter="all">All</button><button type="button" aria-pressed="false" data-filter="fullstack">Full-Stack</button><button type="button" aria-pressed="false" data-filter="ai">AI / ML</button><button type="button" aria-pressed="false" data-filter="backend">Backend &amp; Systems</button><button type="button" aria-pressed="false" data-filter="platform">Platform</button></div>
+<div class="grid" id="grid">
+<article class="card" data-cat="fullstack ai">
+<a class="media" href="https://haazir-six.vercel.app" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="Visit"><img src="assets/haazir.webp" alt="" width="1400" height="634" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">01</span><span class="badge mono">Finalist — Hackatron ’25, IIIT Gwalior · Top 50 of 1,300+</span></div>
+<h3><a href="https://haazir-six.vercel.app" target="_blank" rel="noopener noreferrer">Haazir</a></h3>
+<p class="desc">Smart attendance verification and timetabling system. Three-factor attendance (QR + 100m geofence + 512-D ArcFace matching). Raw images never stored. Automated conflict-free timetable generation.</p>
+<p class="stack mono">TypeScript · React · Node.js · Express · Prisma · PostgreSQL · ArcFace · RetinaFace · ResNet-50 · React Native</p>
+<div class="c-links"><a class="ul" href="https://haazir-six.vercel.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a><a class="ul" href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+</article>
+<article class="card" data-cat="fullstack platform">
+<a class="media" href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="GitHub"><img src="assets/cognito.webp" alt="" width="1400" height="630" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">02</span><span class="badge mono">National Winner — Upskill India Challenge, IIT Bombay Techfest ’25</span></div>
+<h3><a href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer">Cognito Learning Hub</a></h3>
+<p class="desc">Live learning platform built as a 12-microservice architecture. WebRTC video, MediaSoup video, Socket.IO state, Redis-backed Bull queues, four role hierarchies. Won nationally after 50 minutes of architecture evaluation.</p>
+<p class="stack mono">React · Node.js · Express · MongoDB · Redis · Socket.IO · WebRTC · MediaSoup</p>
+<div class="c-links"><a class="ul" href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+</article>
+<article class="card" data-cat="ai">
+<a class="media" href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="GitHub"><img src="assets/fracture-vision.webp" alt="" width="1400" height="752" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">03</span><span class="badge mono">5th Place &amp; Special Mention — Xpecto ’26, IIT Mandi</span></div>
+<h3><a href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer">FractureVision AI</a></h3>
+<p class="desc">Radiograph fracture detection with three complementary models — 99.01% binary accuracy (0.9990 AUC-ROC), ten-class fracture detection at 18.8ms GPU inference. YOLOv10 localiser + Grad-CAM heatmaps for explainability.</p>
+<p class="stack mono">PyTorch · timm · Ultralytics · FastAPI · React · Grad-CAM · YOLOv10</p>
+<div class="c-links"><a class="ul" href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+</article>
+<article class="card" data-cat="fullstack platform backend">
+<a class="media" href="https://mmmut.app" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="Visit"><img src="assets/nexsus.webp" alt="" width="1400" height="638" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">04</span><span class="badge mono">Live · 33k page views/mo · Runs the CSE department timetable</span></div>
+<h3><a href="https://mmmut.app" target="_blank" rel="noopener noreferrer">Nexsus — MMMUT Campus Platform</a></h3>
+<p class="desc">Unified digital ecosystem for MMMUT: 5 web portals, 2 React Native apps, 5 RAG-backed AI assistants, a 70+ model Prisma schema. CSP solver generates live conflict-free schedules across all 4 B.Tech years, M.Tech and M.Sc — 41 courses, 31 faculty, 1,955 weekly contact hours.</p>
+<p class="stack mono">Next.js · React Native · Node.js · Prisma · PostgreSQL · RAG · LangChain · Expo</p>
+<div class="c-links"><a class="ul" href="https://mmmut.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+</article>
+<article class="card" data-cat="fullstack backend">
+<a class="media" href="https://www.gryork.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="Visit"><img src="assets/gryork.webp" alt="" width="1400" height="683" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">05</span><span class="badge mono">₹2.5L Grant · DPIIT-Registered · Incubated at IIIT Allahabad</span></div>
+<h3><a href="https://www.gryork.com" target="_blank" rel="noopener noreferrer">Gryork — Bill-Discounting Marketplace</a></h3>
+<p class="desc">End-to-end architecture for a marketplace connecting EPC contractors, sub-contractors and NBFCs. The architecture won a ₹2.5 lakh grant from IIIT Allahabad. DPIIT-registered, GSTIN-holding startup.</p>
+<p class="stack mono">TypeScript · Node.js · PostgreSQL · Prisma · React · REST · WebSocket</p>
+<div class="c-links"><a class="ul" href="https://www.gryork.com" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+</article>
+<article class="card" data-cat="backend platform">
+<a class="media" href="https://www.washtro.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="Visit"><img src="assets/washtro.webp" alt="" width="1400" height="637" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">06</span><span class="badge mono">CTO · Garment-level chain of custody</span></div>
+<h3><a href="https://www.washtro.com" target="_blank" rel="noopener noreferrer">Washtro — Quick Laundry</a></h3>
+<p class="desc">Technical architecture for a quick-laundry chain built on garment-level chain of custody (not order-level): a 12-stage no-skip pipeline where every transition passes one guarded state machine, an append-only audit log and HMAC-signed garment IDs.</p>
+<p class="stack mono">State machine · Audit log · HMAC-signed IDs</p>
+<div class="c-links"><a class="ul" href="https://www.washtro.com" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+</article>
+<article class="card" data-cat="fullstack">
+<a class="media" href="https://bookease-client.vercel.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" data-cursor="Visit"><img src="assets/bookease.webp" alt="" width="1400" height="634" loading="lazy" decoding="async" data-parallax></a>
+<div class="c-top"><span class="no mono">07</span><span class="badge mono">Shipped in 4 weeks · Bharat Interns Internship</span></div>
+<h3><a href="https://bookease-client.vercel.app/" target="_blank" rel="noopener noreferrer">BookEase</a></h3>
+<p class="desc">MERN-stack appointment booking system designed and shipped during a four-week internship at Bharat Interns Pvt Ltd. Brief to live deployment in one sprint.</p>
+<p class="stack mono">MongoDB · Express · React · Node.js</p>
+<div class="c-links"><a class="ul" href="https://bookease-client.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+</article>
+</div>
+<p class="more-p" data-reveal><a class="btn" href="https://priyanshu-hai.vercel.app/projects" target="_blank" rel="noopener noreferrer" data-magnet>View all projects <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></p>
+</div>
+</section>
+
+<section class="caps" id="capabilities" aria-labelledby="caps-h">
+<div class="wrap">
+<header class="s-head"><p class="eyebrow mono" data-reveal><span class="dot"></span>Capabilities</p><h2 id="caps-h" data-split>What I <em>work with</em></h2></header>
+<ul class="cap-list">
+<li class="cap-row" data-reveal><span class="mono n">01</span><h3>Languages</h3><p>TypeScript, JavaScript, Python, Java, C++, SQL</p></li>
+<li class="cap-row" data-reveal><span class="mono n">02</span><h3>Frontend</h3><p>React, Next.js, React Native / Expo, Tailwind CSS, Vite, Framer Motion, Zustand, Radix UI</p></li>
+<li class="cap-row" data-reveal><span class="mono n">03</span><h3>Backend</h3><p>Node.js, Express, NestJS, FastAPI, Prisma, Sequelize, REST, WebSocket</p></li>
+<li class="cap-row" data-reveal><span class="mono n">04</span><h3>Data &amp; Databases</h3><p>PostgreSQL, MongoDB, Supabase, Redis, pgvector, IndexedDB</p></li>
+<li class="cap-row" data-reveal><span class="mono n">05</span><h3>AI / ML</h3><p>PyTorch, LangChain, LangGraph, RAG, YOLOv10, ArcFace, Vision Transformers, Grad-CAM, Gemini / Groq / OpenAI</p></li>
+<li class="cap-row" data-reveal><span class="mono n">06</span><h3>Infra &amp; DevOps</h3><p>Docker, Git, Vercel, Playwright, Railway, Render, Turborepo, pnpm</p></li>
+</ul>
+</div>
+</section>
+
+<section class="wins" id="recognition" aria-labelledby="wins-h">
+<div class="wrap">
+<header class="s-head"><p class="eyebrow mono" data-reveal><span class="dot"></span>Recognition</p><h2 id="wins-h" data-split>Wins <em>&amp;</em> milestones</h2></header>
+<ul class="win-list">
+<li class="win" data-reveal><span class="mono yr">2025</span><div class="w-t"><h3>National Winner</h3><span class="mono v">Upskill India Challenge · IIT Bombay Techfest ’25</span></div><p>Finalist in three separate hackathons at Techfest; national winner in one. Cognito Learning Hub — the 12-microservice platform — was 2–3 months of work judged in 50 minutes.</p></li>
+<li class="win" data-reveal><span class="mono yr">2025</span><div class="w-t"><h3>₹2.5 Lakh Grant</h3><span class="mono v">IIIT Allahabad — Gryork Consultants</span></div><p>Awarded to Gryork on the strength of the technical architecture I designed. The company is DPIIT-registered and incubated at IIIT Allahabad.</p></li>
+<li class="win" data-reveal><span class="mono yr">2025</span><div class="w-t"><h3>Finalist — Hackatron ’25</h3><span class="mono v">IIIT Gwalior</span></div><p>Haazir placed in the Top 50 of 1,300+ teams.</p></li>
+<li class="win" data-reveal><span class="mono yr">2026</span><div class="w-t"><h3>200+ Students into MMMUT</h3><span class="mono v">Nexsus Counselling Platform</span></div><p>25k+ page views, 900 students, 450 one-to-one mentorship sessions. The single clearest human outcome attached to anything I have built.</p></li>
+<li class="win" data-reveal><span class="mono yr">2026</span><div class="w-t"><h3>5th Place &amp; Special Mention</h3><span class="mono v">Xpecto ’26 · IIT Mandi</span></div><p>Multi-class bone fracture classification. 99.01% binary accuracy, 10-class fracture detection with Grad-CAM explainability at 18.8ms inference.</p></li>
+<li class="win" data-reveal><span class="mono yr">2026</span><div class="w-t"><h3>Finalist — Techkriti ’26</h3><span class="mono v">Innovation Challenge · IIT Kanpur</span></div><p>Vigilant-Bhai — a fraud detection system that traces scam propagation networks. Built solo.</p></li>
+<li class="win" data-reveal><span class="mono yr">2026</span><div class="w-t"><h3>Nexsus Runs the Dept. Timetable</h3><span class="mono v">CSE Dept · MMMUT</span></div><p>CSP solver generates the live, conflict-free schedule — 41 courses, 31 faculty, 1,009 weekly lecture hours. If it breaks, the department’s schedule breaks.</p></li>
+</ul>
+<dl class="gh" data-reveal><div><dt>1,247</dt><dd>GitHub contributions</dd></div><div><dt>219</dt><dd>Active coding days</dd></div></dl>
+</div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-h">
+<div class="wrap faq-grid">
+<header class="s-head"><p class="eyebrow mono" data-reveal><span class="dot"></span>Questions</p><h2 id="faq-h" data-split>Got any <em>questions?</em></h2></header>
+<ul class="q-list" id="faqList">
+<li class="q" data-reveal><h3><button type="button" aria-expanded="false" aria-controls="q0" id="qb0"><span>What are you looking for?</span><i aria-hidden="true"></i></button></h3>
+<div class="fold" id="q0" role="region" aria-labelledby="qb0"><div><p>Open to internships, SDE roles, and interesting systems problems. If you have one, I want to hear about it.</p></div></div></li>
+<li class="q" data-reveal><h3><button type="button" aria-expanded="false" aria-controls="q1" id="qb1"><span>What do you build best?</span><i aria-hidden="true"></i></button></h3>
+<div class="fold" id="q1" role="region" aria-labelledby="qb1"><div><p>Platforms other people depend on — a bill-discounting marketplace moving real money, a campus super-app replacing ten fragmented tools, a chain-of-custody system tracking individual garments. I care deeply about correctness guarantees, clean state machines, and systems that hold under load — not just demos that impress in a pitch.</p></div></div></li>
+<li class="q" data-reveal><h3><button type="button" aria-expanded="false" aria-controls="q2" id="qb2"><span>Where are you based?</span><i aria-hidden="true"></i></button></h3>
+<div class="fold" id="q2" role="region" aria-labelledby="qb2"><div><p>Gorakhpur and Varanasi, Uttar Pradesh, India. I’m studying B.Tech in Computer Science &amp; Engineering at MMMUT (2024–2028).</p></div></div></li>
+<li class="q" data-reveal><h3><button type="button" aria-expanded="false" aria-controls="q3" id="qb3"><span>What’s the best way to reach you?</span><i aria-hidden="true"></i></button></h3>
+<div class="fold" id="q3" role="region" aria-labelledby="qb3"><div><p>Email me at <a class="ul" href="mailto:priyanshuchaurasiadlw@gmail.com">priyanshuchaurasiadlw@gmail.com</a> or call <a class="ul" href="tel:+916394180796">+91 63941 80796</a>. The form further down opens your email app with the message ready to send.</p></div></div></li>
+</ul>
+</div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+<div class="wrap">
+<p class="eyebrow mono" data-reveal><span class="dot"></span>Contact · Hire · Collaborate</p>
+<h2 id="contact-h" data-split>Let’s build something <em>worth using.</em></h2>
+<div class="c-grid">
+<div class="c-left" data-reveal>
+<p class="c-lede">Open to internships, SDE roles, and interesting systems problems. If you have one, I want to hear about it.</p>
+<div class="mail-row"><a class="c-mail" href="mailto:priyanshuchaurasiadlw@gmail.com">priyanshuchaurasiadlw@gmail.com</a><button class="copy mono" id="copyMail" type="button" aria-live="polite">Copy</button></div>
+<dl class="c-list"><div><dt class="mono">Phone</dt><dd><a class="ul" href="tel:+916394180796">+91 63941 80796</a></dd></div><div><dt class="mono">Location</dt><dd>Gorakhpur · Varanasi, UP</dd></div></dl>
+<div class="soc"><a class="ul" href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a><a class="ul" href="https://www.linkedin.com/in/priyanshu-chaurasia-326979335/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a><a class="ul" href="mailto:priyanshuchaurasiadlw@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a></div>
+</div>
+<form id="contactForm" class="c-form" data-reveal novalidate aria-label="Contact form (opens your email app)">
+<div class="row"><div class="f"><label for="cf-name">Name</label><input id="cf-name" name="name" autocomplete="name" required><div class="err" aria-live="polite"></div></div>
+<div class="f"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required><div class="err" aria-live="polite"></div></div></div>
+<div class="f"><label for="cf-subject">Subject</label><input id="cf-subject" name="subject" required><div class="err" aria-live="polite"></div></div>
+<div class="f"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="4" required></textarea><div class="err" aria-live="polite"></div></div>
+<button class="btn solid" type="submit" data-magnet>Send via email <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+<p class="note mono">No backend: this opens your email app with the message pre-filled, addressed to me.</p>
+<div class="status" id="formOk" role="status" hidden>Your email app should open with the message ready to send. If it doesn’t, use the Copy button to grab my address.</div>
+<div class="status bad" id="formBad" role="alert" hidden></div>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="foot">
+<div class="wrap">
+<div class="f-grid">
+<nav aria-label="Footer"><h2 class="mono">Navigate</h2><ul><li><a href="#about">About</a></li><li><a href="#journey">Journey</a></li><li><a href="#work">Work</a></li><li><a href="#capabilities">Capabilities</a></li><li><a href="#recognition">Recognition</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<div><h2 class="mono">Elsewhere</h2><ul><li><a href="https://github.com/priyanshu-1006" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li><li><a href="https://www.linkedin.com/in/priyanshu-chaurasia-326979335/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li><li><a href="https://priyanshu-hai.vercel.app/resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a></li></ul></div>
+<div><h2 class="mono">Contact</h2><ul><li><a href="mailto:priyanshuchaurasiadlw@gmail.com">Email</a></li><li><a href="tel:+916394180796">+91 63941 80796</a></li></ul></div>
+<a class="to-top mono" href="#hero">Back to top ↑</a>
+</div>
+<p class="wordmark" aria-hidden="true">Priyanshu<br>Chaurasia</p>
+<div class="f-bottom mono"><span>© <span id="year">2026</span> Priyanshu Chaurasia</span><span>I build the systems institutions run on.</span></div>
+</div>
+</footer>
+<script src="js/main.js" defer></script>
 </body>
 </html>
