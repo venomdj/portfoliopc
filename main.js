@@ -1,4 +1,4 @@
-/* Priyanshu Chaurasia — portfolio behaviour.
+/* Shivam Pandey — portfolio behaviour.
    Dependency-free motion engine: one scroll loop, one IntersectionObserver per concern, no duplicate init.
    Every effect respects prefers-reduced-motion; pointer effects only run on fine pointers. */
 (() => {
@@ -369,7 +369,7 @@
   }
 
   /* ---------- contact: validated mailto flow + copy ---------- */
-  const TO = 'priyanshuchaurasiadlw@gmail.com';
+  const TO = 'shivam.pandey@example.com';
   const form = $('#contactForm'), ok = $('#formOk'), bad = $('#formBad');
   if (form) {
     const rules = {
