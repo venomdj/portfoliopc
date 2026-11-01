@@ -280,10 +280,6 @@
     root.classList.toggle('scrolled', y > 80);
     if (top) {
       top.classList.toggle('solid', y > 20);
-      if (!menuOpen) {
-        if (y > lastY + 6 && y > 480) top.classList.add('hide');
-        else if (y < lastY - 6 || y < 480) top.classList.remove('hide');
-      }
     }
     lastY = y;
     if (heroBg && !reduced) heroBg.style.setProperty('--hs', clamp(y / (vh * .9), 0, 1).toFixed(3));
